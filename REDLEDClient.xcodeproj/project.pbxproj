@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */; };
+		50A27ADD15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */; };
+		50A27AE015FB9B2800B0D39B /* RGBSCViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */; };
+		50AD9AD215F8DFA1005D031A /* MCUDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */; };
+		50AF0CC515F8D39B00BB3C5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC415F8D39B00BB3C5F /* UIKit.framework */; };
+		50AF0CC715F8D39B00BB3C5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC615F8D39B00BB3C5F /* Foundation.framework */; };
+		50AF0CC915F8D39B00BB3C5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC815F8D39B00BB3C5F /* CoreGraphics.framework */; };
+		50AF0CCF15F8D39B00BB3C5F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CCD15F8D39B00BB3C5F /* InfoPlist.strings */; };
+		50AF0CD115F8D39B00BB3C5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD015F8D39B00BB3C5F /* main.m */; };
+		50AF0CD515F8D39B00BB3C5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */; };
+		50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		50A27AD715FB900600B0D39B /* RGBSCBonjourBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCBonjourBrowserViewController.h; sourceTree = "<group>"; };
+		50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBSCBonjourBrowserViewController.m; sourceTree = "<group>"; };
+		50A27ADB15FB93EA00B0D39B /* RGBSCBonjourServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCBonjourServiceCell.h; sourceTree = "<group>"; };
+		50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBSCBonjourServiceCell.m; sourceTree = "<group>"; };
+		50A27ADE15FB9B2800B0D39B /* RGBSCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCViewController.h; sourceTree = "<group>"; };
+		50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RGBSCViewController.mm; sourceTree = "<group>"; };
+		50AD9ACF15F8DF98005D031A /* RGBStrip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBStrip.h; sourceTree = "<group>"; };
+		50AD9AD015F8DFA1005D031A /* MCUDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUDPSocket.h; sourceTree = "<group>"; };
+		50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUDPSocket.m; sourceTree = "<group>"; };
+		50AF0CC015F8D39B00BB3C5F /* REDLEDClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REDLEDClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AF0CC415F8D39B00BB3C5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		50AF0CC615F8D39B00BB3C5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		50AF0CC815F8D39B00BB3C5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		50AF0CCC15F8D39B00BB3C5F /* REDLEDClient-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "REDLEDClient-Info.plist"; sourceTree = "<group>"; };
+		50AF0CCE15F8D39B00BB3C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		50AF0CD015F8D39B00BB3C5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50AF0CD215F8D39B00BB3C5F /* REDLEDClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "REDLEDClient-Prefix.pch"; sourceTree = "<group>"; };
+		50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		50AF0CD715F8D39B00BB3C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50AF0CBD15F8D39B00BB3C5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AF0CC515F8D39B00BB3C5F /* UIKit.framework in Frameworks */,
+				50AF0CC715F8D39B00BB3C5F /* Foundation.framework in Frameworks */,
+				50AF0CC915F8D39B00BB3C5F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50AF0CB515F8D39B00BB3C5F = {
+			isa = PBXGroup;
+			children = (
+				50AD9ACF15F8DF98005D031A /* RGBStrip.h */,
+				50AF0CCA15F8D39B00BB3C5F /* REDLEDClient */,
+				50AF0CC315F8D39B00BB3C5F /* Frameworks */,
+				50AF0CC115F8D39B00BB3C5F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50AF0CC115F8D39B00BB3C5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50AF0CC015F8D39B00BB3C5F /* REDLEDClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50AF0CC315F8D39B00BB3C5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50AF0CC415F8D39B00BB3C5F /* UIKit.framework */,
+				50AF0CC615F8D39B00BB3C5F /* Foundation.framework */,
+				50AF0CC815F8D39B00BB3C5F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50AF0CCA15F8D39B00BB3C5F /* REDLEDClient */ = {
+			isa = PBXGroup;
+			children = (
+				50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */,
+				50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */,
+				50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */,
+				50A27AD715FB900600B0D39B /* RGBSCBonjourBrowserViewController.h */,
+				50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */,
+				50A27ADB15FB93EA00B0D39B /* RGBSCBonjourServiceCell.h */,
+				50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */,
+				50A27ADE15FB9B2800B0D39B /* RGBSCViewController.h */,
+				50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */,
+				50AD9AD015F8DFA1005D031A /* MCUDPSocket.h */,
+				50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */,
+				50AF0CCB15F8D39B00BB3C5F /* Supporting Files */,
+			);
+			path = REDLEDClient;
+			sourceTree = "<group>";
+		};
+		50AF0CCB15F8D39B00BB3C5F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50AF0CCC15F8D39B00BB3C5F /* REDLEDClient-Info.plist */,
+				50AF0CCD15F8D39B00BB3C5F /* InfoPlist.strings */,
+				50AF0CD015F8D39B00BB3C5F /* main.m */,
+				50AF0CD215F8D39B00BB3C5F /* REDLEDClient-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50AF0CBF15F8D39B00BB3C5F /* REDLEDClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AF0CDE15F8D39B00BB3C5F /* Build configuration list for PBXNativeTarget "REDLEDClient" */;
+			buildPhases = (
+				50AF0CBC15F8D39B00BB3C5F /* Sources */,
+				50AF0CBD15F8D39B00BB3C5F /* Frameworks */,
+				50AF0CBE15F8D39B00BB3C5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = REDLEDClient;
+			productName = REDLEDClient;
+			productReference = 50AF0CC015F8D39B00BB3C5F /* REDLEDClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50AF0CB715F8D39B00BB3C5F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = mczonk.de;
+			};
+			buildConfigurationList = 50AF0CBA15F8D39B00BB3C5F /* Build configuration list for PBXProject "REDLEDClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 50AF0CB515F8D39B00BB3C5F;
+			productRefGroup = 50AF0CC115F8D39B00BB3C5F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50AF0CBF15F8D39B00BB3C5F /* REDLEDClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50AF0CBE15F8D39B00BB3C5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AF0CCF15F8D39B00BB3C5F /* InfoPlist.strings in Resources */,
+				50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50AF0CBC15F8D39B00BB3C5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AF0CD115F8D39B00BB3C5F /* main.m in Sources */,
+				50AF0CD515F8D39B00BB3C5F /* AppDelegate.m in Sources */,
+				50AD9AD215F8DFA1005D031A /* MCUDPSocket.m in Sources */,
+				50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */,
+				50A27ADD15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m in Sources */,
+				50A27AE015FB9B2800B0D39B /* RGBSCViewController.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		50AF0CCD15F8D39B00BB3C5F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50AF0CCE15F8D39B00BB3C5F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50AF0CD715F8D39B00BB3C5F /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50AF0CDC15F8D39B00BB3C5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		50AF0CDD15F8D39B00BB3C5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50AF0CDF15F8D39B00BB3C5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "REDLEDClient/REDLEDClient-Prefix.pch";
+				INFOPLIST_FILE = "REDLEDClient/REDLEDClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		50AF0CE015F8D39B00BB3C5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "REDLEDClient/REDLEDClient-Prefix.pch";
+				INFOPLIST_FILE = "REDLEDClient/REDLEDClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50AF0CBA15F8D39B00BB3C5F /* Build configuration list for PBXProject "REDLEDClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AF0CDC15F8D39B00BB3C5F /* Debug */,
+				50AF0CDD15F8D39B00BB3C5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AF0CDE15F8D39B00BB3C5F /* Build configuration list for PBXNativeTarget "REDLEDClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AF0CDF15F8D39B00BB3C5F /* Debug */,
+				50AF0CE015F8D39B00BB3C5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50AF0CB715F8D39B00BB3C5F /* Project object */;
+}
