@@ -12,6 +12,7 @@
 #endif
 
 #include "RGBStrip.h"
+#include "Gamma.h"
 
 EthernetUDP socket;
 
@@ -97,7 +98,7 @@ void hanleRGBStripMessageSetAll(const RGBStripMessageSetAll& message)
 {
   for(int i = 0; i < LedStripLedCount; ++i)
   {
-    ledStrip.setPixelColor(i, message.r >> 1, message.g >> 1, message.b >> 1);
+    ledStrip.setPixelColor(i, GammaCorretion(message.r), GammaCorretion(message.g), GammaCorretion(message.b));
   }
   ledStrip.show();
 }
