@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIPColorSlider.h"
+
 @interface RGBSCViewController : UIViewController
 
 - (void)bindToAddress:(NSData*)address;
 
-@property (nonatomic, strong) IBOutlet UISlider* rSlider;
-@property (nonatomic, strong) IBOutlet UISlider* gSlider;
-@property (nonatomic, strong) IBOutlet UISlider* bSlider;
+@property (nonatomic, strong) IBOutlet UIPColorSlider* hSlider;
+@property (nonatomic, strong) IBOutlet UIPColorSlider* sSlider;
+@property (nonatomic, strong) IBOutlet UIPColorSlider* bSlider;
 
 - (IBAction)sliderChanged:(id)sender;
 

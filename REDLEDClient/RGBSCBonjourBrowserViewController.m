@@ -87,21 +87,13 @@
 {
 	NSNetService* bonjourService = [self.resolvedBonjourServices objectAtIndex:indexPath.row];
 	
-	NSInputStream* inputStream = nil;
-	NSOutputStream* outputStream = nil;
-	
-	[bonjourService getInputStream:&inputStream outputStream:&outputStream];
-	
-	NSLog(@"%@", inputStream);
-	NSLog(@"%@", outputStream);
-	
 	RGBSCViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RGBSCViewController"];
 	NSLog(@"%@", viewController);
 	
 	NSData* address = [bonjourService.addresses objectAtIndex:0];
 	[viewController bindToAddress:address];
 	
-	[self presentViewController:viewController animated:YES completion:nil];
+	[self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - NSNetServiceBrowserDelegate

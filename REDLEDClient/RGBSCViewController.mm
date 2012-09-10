@@ -23,6 +23,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+#if 0
+	self.hSlider.colors = @[
+		UIColor.redColor,
+		UIColor.yellowColor,
+		UIColor.greenColor,
+		UIColor.cyanColor,
+		UIColor.blueColor,
+		UIColor.magentaColor,
+		UIColor.redColor,
+	];
+	
+	self.sSlider.colors = @[
+		UIColor.whiteColor,
+		UIColor.redColor,
+	];
+	
+	self.bSlider.colors = @[
+		UIColor.blackColor,
+		UIColor.redColor,
+	];
+#endif
+	
+	self.hSlider.value = 0.5f;
+	self.sSlider.value = 1.0f;
+	self.bSlider.value = 1.0f;
 }
 
 - (void)viewDidUnload
@@ -42,13 +68,36 @@
 
 - (IBAction)sliderChanged:(id)sender
 {
-	NSLog(@"%s", __PRETTY_FUNCTION__);
+	float h = self.hSlider.value;
+	float s = self.sSlider.value;
+	float b = self.bSlider.value;
+
+	self.hSlider.colors = @[
+		[UIColor colorWithHue:0.0f / 6.0f saturation:s brightness:b alpha:1.0f],
+		[UIColor colorWithHue:1.0f / 6.0f saturation:s brightness:b alpha:1.0f],
+		[UIColor colorWithHue:2.0f / 6.0f saturation:s brightness:b alpha:1.0f],
+		[UIColor colorWithHue:3.0f / 6.0f saturation:s brightness:b alpha:1.0f],
+		[UIColor colorWithHue:4.0f / 6.0f saturation:s brightness:b alpha:1.0f],
+		[UIColor colorWithHue:5.0f / 6.0f saturation:s brightness:b alpha:1.0f],
+		[UIColor colorWithHue:6.0f / 6.0f saturation:s brightness:b alpha:1.0f],
+	];
 	
+	self.sSlider.colors = @[
+		[UIColor colorWithHue:h saturation:0.0f brightness:b alpha:1.0f],
+		[UIColor colorWithHue:h saturation:1.0f brightness:b alpha:1.0f],
+	];
+	
+	self.bSlider.colors = @[
+		[UIColor colorWithHue:h saturation:s brightness:0.0f alpha:1.0f],
+		[UIColor colorWithHue:h saturation:s brightness:1.0f alpha:1.0f],
+	];
+
+	UIColor* color = [UIColor colorWithHue:h saturation:s brightness:b alpha:1.0f];
+
+#if 1
 	float colorf[3];
 	
-	colorf[0] = self.rSlider.value;
-	colorf[1] = self.gSlider.value;
-	colorf[2] = self.bSlider.value;
+	[color getRed:&colorf[0] green:&colorf[1] blue:&colorf[2] alpha:NULL];
 	
 	unsigned char colorb[3];
 	
@@ -68,15 +117,16 @@
 	message.header.type = RGBStripMessageTypeSetAll;
 	message.header.length = sizeof(message);
 	
-	message.r = colorb[0] >> 1;
-	message.g = colorb[1] >> 1;
-	message.b = colorb[2] >> 1;
+	message.r = colorb[0];
+	message.g = colorb[1];
+	message.b = colorb[2];
 	
 	message.header.checksum = RGBStripCalcChecksum(&message);
 	
 	NSData* data = RGBStripMessageToNSData(&message);
 	
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
+#endif
 }
 
 @end
