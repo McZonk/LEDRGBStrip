@@ -18,6 +18,9 @@
 		50AF0CD115F8D39B00BB3C5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD015F8D39B00BB3C5F /* main.m */; };
 		50AF0CD515F8D39B00BB3C5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */; };
 		50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */; };
+		50CB647315FE4CBD001C5999 /* UIPColorSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CB647215FE4CBD001C5999 /* UIPColorSlider.m */; };
+		50CB647515FE4DEC001C5999 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CB647415FE4DEC001C5999 /* QuartzCore.framework */; };
+		50CB647715FE5051001C5999 /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 50CB647615FE5051001C5999 /* Circle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,10 @@
 		50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		50AF0CD715F8D39B00BB3C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		50CB647115FE4CBD001C5999 /* UIPColorSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPColorSlider.h; sourceTree = "<group>"; };
+		50CB647215FE4CBD001C5999 /* UIPColorSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPColorSlider.m; sourceTree = "<group>"; };
+		50CB647415FE4DEC001C5999 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		50CB647615FE5051001C5999 /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50CB647515FE4DEC001C5999 /* QuartzCore.framework in Frameworks */,
 				50AF0CC515F8D39B00BB3C5F /* UIKit.framework in Frameworks */,
 				50AF0CC715F8D39B00BB3C5F /* Foundation.framework in Frameworks */,
 				50AF0CC915F8D39B00BB3C5F /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +86,7 @@
 		50AF0CC315F8D39B00BB3C5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50CB647415FE4DEC001C5999 /* QuartzCore.framework */,
 				50AF0CC415F8D39B00BB3C5F /* UIKit.framework */,
 				50AF0CC615F8D39B00BB3C5F /* Foundation.framework */,
 				50AF0CC815F8D39B00BB3C5F /* CoreGraphics.framework */,
@@ -99,6 +108,9 @@
 				50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */,
 				50AD9AD015F8DFA1005D031A /* MCUDPSocket.h */,
 				50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */,
+				50CB647115FE4CBD001C5999 /* UIPColorSlider.h */,
+				50CB647215FE4CBD001C5999 /* UIPColorSlider.m */,
+				50CB647615FE5051001C5999 /* Circle.png */,
 				50AF0CCB15F8D39B00BB3C5F /* Supporting Files */,
 			);
 			path = REDLEDClient;
@@ -168,6 +180,7 @@
 			files = (
 				50AF0CCF15F8D39B00BB3C5F /* InfoPlist.strings in Resources */,
 				50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */,
+				50CB647715FE5051001C5999 /* Circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +197,7 @@
 				50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */,
 				50A27ADD15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m in Sources */,
 				50A27AE015FB9B2800B0D39B /* RGBSCViewController.mm in Sources */,
+				50CB647315FE4CBD001C5999 /* UIPColorSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
