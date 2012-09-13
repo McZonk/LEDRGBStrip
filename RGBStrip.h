@@ -2,64 +2,79 @@
 
 #define RGBStripMessageIdentifier 0x42
 
-#define RGBStripMessageTypeSetAll 0x01
+#define RGBStripMessageTypeSetRange 0x01
 
 struct RGBStripMessageHeader
 {
-	unsigned char identifier;
-	unsigned char length;
-	unsigned char checksum;
-	unsigned char type;
+	uint8_t identifier;
+	uint8_t length;
+	uint8_t checksum;
+	uint8_t type;
 };
 
 struct RGBStripMessage
 {
 	RGBStripMessageHeader header;
-	unsigned char data[0];
-};
-
-struct RGBStripMessageSetAll : RGBStripMessage
-{
-	unsigned char r;
-	unsigned char g;
-	unsigned char b;
-};
-
-
-static unsigned char RGBStripCalcChecksum(const RGBStripMessage* message)
-{
-	const unsigned char length = message->header.length - sizeof(message->header);
+	uint8_t data[0];
 	
-	unsigned char checksum = message->header.type;
-	for(unsigned char index = 0; index < length; ++index)
+	uint8_t calcChecksum() const
 	{
-		checksum += message->data[index];
+		const unsigned char length = header.length - sizeof(header);
+		
+		unsigned char checksum = header.type;
+		for(unsigned char index = 0; index < length; ++index)
+		{
+			checksum += data[index];
+		}
+		
+		return checksum;
 	}
 	
-	return checksum;
-}
-
-static bool RGBStripValidateMessage(const RGBStripMessage* message)
-{
-	if(message->header.identifier != RGBStripMessageIdentifier)
+	void fillChecksum()
 	{
-		return false;
+		header.checksum = calcChecksum();
 	}
 	
-	unsigned char checksum = RGBStripCalcChecksum(message);
-	if(message->header.checksum != checksum)
+	bool validateChecksum() const
 	{
-		return false;
+		if(header.identifier != RGBStripMessageIdentifier)
+		{
+			return false;
+		}
+		
+		unsigned char checksum = calcChecksum();
+		if(header.checksum != checksum)
+		{
+			return false;
+		}
+		
+		return true;
 	}
 	
-	return true;
-};
-
 #ifdef __OBJC__
-
-static NSData* RGBStripMessageToNSData(const RGBStripMessage* message)
-{
-	return [NSData dataWithBytes:message length:message->header.length];
-}
-
+	operator NSData* () const
+	{
+		return [NSData dataWithBytes:this length:header.length];
+	}
 #endif
+};
+
+struct RGBStripMessageSetRange : RGBStripMessage
+{
+	uint16_t firstLED;
+	uint16_t lastLED;
+
+	int16_t hue;
+	uint8_t saturation;
+	uint8_t brightness;
+
+	uint8_t animation;
+	
+	RGBStripMessageSetRange()
+	{
+		header.identifier = RGBStripMessageIdentifier;
+		header.type = RGBStripMessageTypeSetRange;
+		header.length = sizeof(*this);
+	}
+};
+

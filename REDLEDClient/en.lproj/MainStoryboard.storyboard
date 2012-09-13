@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2829" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="OFO-4r-cIJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="OFO-4r-cIJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1914"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -35,19 +36,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Label" autoshrinkMode="minimumFontSize" id="c37-uK-3MB">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="c37-uK-3MB">
                                             <rect key="frame" x="20" y="1" width="260" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Label" autoshrinkMode="minimumFontSize" id="LZy-kx-hYK">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="LZy-kx-hYK">
                                             <rect key="frame" x="20" y="19" width="260" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="textColor" red="0.49803921580314636" green="0.49803921580314636" blue="0.49803921580314636" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.49803921580314636" green="0.49803921580314636" blue="0.49803921580314636" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -78,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="dbx-bB-aAG" customClass="UIPColorSlider">
-                                <rect key="frame" x="20" y="20" width="280" height="80"/>
+                                <rect key="frame" x="20" y="20" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -86,7 +87,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" id="TJx-Rt-SSn" customClass="UIPColorSlider">
-                                <rect key="frame" x="20" y="123" width="280" height="80"/>
+                                <rect key="frame" x="20" y="88" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -94,20 +95,52 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" id="69l-iC-RKK" customClass="UIPColorSlider">
-                                <rect key="frame" x="20" y="231" width="280" height="80"/>
+                                <rect key="frame" x="20" y="156" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="sliderChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="Cum-TS-vXB"/>
                                 </connections>
                             </view>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="56" id="1EH-qy-aXv">
+                                <rect key="frame" x="20" y="259" width="94" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="firstLEDChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="8to-eP-7up"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="56" maximumValue="56" id="Xgr-aI-wIz">
+                                <rect key="frame" x="206" y="259" width="94" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="lastLEDChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="Pxa-z1-RMi"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yj0-H5-8V9">
+                                <rect key="frame" x="20" y="230" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sgQ-rS-ZOF">
+                                <rect key="frame" x="206" y="230" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fyc-N7-jI3"/>
                     <connections>
                         <outlet property="bSlider" destination="69l-iC-RKK" id="ZN3-GP-GIB"/>
+                        <outlet property="firstStepper" destination="1EH-qy-aXv" id="Smc-GV-fzM"/>
+                        <outlet property="firstTextView" destination="yj0-H5-8V9" id="gE0-sG-bUL"/>
                         <outlet property="hSlider" destination="dbx-bB-aAG" id="uZv-E7-LjQ"/>
+                        <outlet property="lastStepper" destination="Xgr-aI-wIz" id="ggL-ba-Mu0"/>
+                        <outlet property="lastTextView" destination="sgQ-rS-ZOF" id="Vnq-lS-tkW"/>
                         <outlet property="sSlider" destination="TJx-Rt-SSn" id="0eN-Vt-kbK"/>
                     </connections>
                 </viewController>
@@ -130,9 +163,15 @@
         <class className="RGBSCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCViewController.h"/>
             <relationships>
+                <relationship kind="action" name="firstLEDChanged:"/>
+                <relationship kind="action" name="lastLEDChanged:"/>
                 <relationship kind="action" name="sliderChanged:"/>
                 <relationship kind="outlet" name="bSlider" candidateClass="UIPColorSlider"/>
+                <relationship kind="outlet" name="firstStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="firstTextView" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="hSlider" candidateClass="UIPColorSlider"/>
+                <relationship kind="outlet" name="lastStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="lastTextView" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sSlider" candidateClass="UIPColorSlider"/>
             </relationships>
         </class>

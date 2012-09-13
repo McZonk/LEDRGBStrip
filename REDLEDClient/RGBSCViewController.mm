@@ -11,6 +11,7 @@
 #import "MCUDPSocket.h"
 
 #import "RGBStrip.h"
+#import "HSBColor.h"
 
 @interface RGBSCViewController () <NSStreamDelegate>
 
@@ -92,41 +93,37 @@
 		[UIColor colorWithHue:h saturation:s brightness:1.0f alpha:1.0f],
 	];
 
-	UIColor* color = [UIColor colorWithHue:h saturation:s brightness:b alpha:1.0f];
-
 #if 1
-	float colorf[3];
-	
-	[color getRed:&colorf[0] green:&colorf[1] blue:&colorf[2] alpha:NULL];
-	
-	unsigned char colorb[3];
-	
-	for(NSUInteger i = 0; i < 3; ++i)
-	{
-		colorb[i] = (unsigned char)(colorf[i] * 255.0f);
-		if(colorb[i] < 2)
-		{
-			colorb[i] = 2;
-		}
-	}
-	
 	//NSLog(@"%02x %02x %02x", colorb[0], colorb[1], colorb[2]);
 	
-	struct RGBStripMessageSetAll message;
-	message.header.identifier = RGBStripMessageIdentifier;
-	message.header.type = RGBStripMessageTypeSetAll;
-	message.header.length = sizeof(message);
+	HSBColor color = HSBColor(h, s, b);
 	
-	message.r = colorb[0];
-	message.g = colorb[1];
-	message.b = colorb[2];
+	RGBStripMessageSetRange message;
+	message.hue = color.h;
+	message.saturation = color.s;
+	message.brightness = color.b;
 	
-	message.header.checksum = RGBStripCalcChecksum(&message);
+	message.firstLED = self.firstStepper.value;
+	message.lastLED = self.lastStepper.value;
+
+	message.animation = 0;
 	
-	NSData* data = RGBStripMessageToNSData(&message);
+	message.fillChecksum();
+	
+	NSData* data = message;
 	
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
 #endif
+}
+
+- (IBAction)firstLEDChanged:(id)sender
+{
+	self.firstTextView.text = [NSString stringWithFormat:@"%.0f", self.firstStepper.value];
+}
+
+- (IBAction)lastLEDChanged:(id)sender
+{
+	self.lastTextView.text = [NSString stringWithFormat:@"%.0f", self.lastStepper.value];
 }
 
 @end

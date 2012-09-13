@@ -12,6 +12,7 @@
 #endif
 
 #include "RGBStrip.h"
+#include "HSBColor.h"
 #include "Gamma.h"
 
 EthernetUDP socket;
@@ -76,14 +77,14 @@ void loop()
     
     RGBStripMessage& message = *(RGBStripMessage*)messageData;
     
-    if(!RGBStripValidateMessage(&message))
+    if(!message.validateChecksum())
     {
     }
     else
     {
       switch(message.header.type) {
-        case RGBStripMessageTypeSetAll :
-          hanleRGBStripMessageSetAll((RGBStripMessageSetAll&)message);
+        case RGBStripMessageTypeSetRange :
+          hanleRGBStripMessageSetRange((RGBStripMessageSetRange&)message);
           break;
         default :
           break;
@@ -94,11 +95,21 @@ void loop()
   delay(1);
 }
 
-void hanleRGBStripMessageSetAll(const RGBStripMessageSetAll& message)
+void hanleRGBStripMessageSetRange(const RGBStripMessageSetRange& message)
 {
-  for(int i = 0; i < LedStripLedCount; ++i)
+  int first = message.firstLED;
+  int last = message.lastLED;
+  if(last > ledStrip.numPixels())
   {
-    ledStrip.setPixelColor(i, GammaCorretion(message.r), GammaCorretion(message.g), GammaCorretion(message.b));
+    last = ledStrip.numPixels();
+  }
+  
+  HSBColor hsbColor = HSBColor(message.hue, message.saturation, message.brightness);
+  RGBColor rgbColor = hsbColor;
+  
+  for(int i = first; i <= last; ++i)
+  {
+    ledStrip.setPixelColor(i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
   }
   ledStrip.show();
 }

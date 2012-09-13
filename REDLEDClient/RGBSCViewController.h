@@ -18,6 +18,15 @@
 @property (nonatomic, strong) IBOutlet UIPColorSlider* sSlider;
 @property (nonatomic, strong) IBOutlet UIPColorSlider* bSlider;
 
+@property (nonatomic, strong) IBOutlet UIStepper* firstStepper;
+@property (nonatomic, strong) IBOutlet UIStepper* lastStepper;
+
+@property (nonatomic, strong) IBOutlet UILabel* firstTextView;
+@property (nonatomic, strong) IBOutlet UILabel* lastTextView;
+
 - (IBAction)sliderChanged:(id)sender;
+
+- (IBAction)firstLEDChanged:(id)sender;
+- (IBAction)lastLEDChanged:(id)sender;
 
 @end

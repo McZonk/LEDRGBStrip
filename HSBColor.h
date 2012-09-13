@@ -11,45 +11,44 @@
 
 class HSBColor {  
 public:
-  static const HSBColor Red;
-  static const HSBColor Yellow;
-  static const HSBColor Green;
-  static const HSBColor Cyan;
-  static const HSBColor Blue;
-  static const HSBColor Magenta;
+	HSBColor();
 
-  HSBColor();
+	HSBColor(int16_t h, uint8_t s, uint8_t b);
+	HSBColor(float h, float s, float b);
+	
+	void normalizeSelf();
 
-  HSBColor(int16_t h, uint8_t s, uint8_t v);
-  
-  void normalizeSelf();
-
-  operator RGBColor() const;
+	operator RGBColor() const;
 
 public:
-  union {
-    struct {
-      int16_t h;
-      uint8_t s;
-      uint8_t b;
-    };
-    uint32_t value;
-  };
+	union {
+		struct {
+			int16_t h;
+			uint8_t s;
+			uint8_t b;
+		};
+		uint32_t value;
+	};
 };
 
 inline HSBColor::HSBColor() {
 }
 
 inline HSBColor::HSBColor(int16_t h, uint8_t s, uint8_t b) :
-h(h),
-s(s),
-b(b) {
+	h(h),
+	s(s),
+	b(b) {
+}
+
+inline HSBColor::HSBColor(float h, float s, float b) :
+	h(h * (HSBColorHueRange - 1.0f)),
+	s(s * 255.0f),
+	b(b * 255.0f) {
 }
 
 inline void HSBColor::normalizeSelf() {
-  h %= HSBColorHueRange;
-  if(h < 0) {
-    h += HSBColorHueRange;
-  }
+	h %= HSBColorHueRange;
+	if(h < 0) {
+		h += HSBColorHueRange;
+	}
 }
-
