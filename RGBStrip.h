@@ -4,6 +4,9 @@
 
 #define RGBStripMessageTypeSetRange 0x01
 
+#include "HSBColor.h"
+
+
 struct RGBStripMessageHeader
 {
 	uint8_t identifier;
@@ -64,10 +67,8 @@ struct RGBStripMessageSetRange : RGBStripMessage
 	uint16_t firstLED;
 	uint16_t lastLED;
 
-	int16_t hue;
-	uint8_t saturation;
-	uint8_t brightness;
-
+	HSBColor color;
+	
 	uint8_t animation;
 	
 	RGBStripMessageSetRange()

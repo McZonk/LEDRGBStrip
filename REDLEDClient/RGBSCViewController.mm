@@ -93,15 +93,8 @@
 		[UIColor colorWithHue:h saturation:s brightness:1.0f alpha:1.0f],
 	];
 
-#if 1
-	//NSLog(@"%02x %02x %02x", colorb[0], colorb[1], colorb[2]);
-	
-	HSBColor color = HSBColor(h, s, b);
-	
 	RGBStripMessageSetRange message;
-	message.hue = color.h;
-	message.saturation = color.s;
-	message.brightness = color.b;
+	message.color = HSBColor(h, s, b);
 	
 	message.firstLED = self.firstStepper.value;
 	message.lastLED = self.lastStepper.value;
@@ -113,7 +106,6 @@
 	NSData* data = message;
 	
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
-#endif
 }
 
 - (IBAction)firstLEDChanged:(id)sender
