@@ -36,7 +36,6 @@
 		50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBSCBonjourServiceCell.m; sourceTree = "<group>"; };
 		50A27ADE15FB9B2800B0D39B /* RGBSCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCViewController.h; sourceTree = "<group>"; };
 		50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RGBSCViewController.mm; sourceTree = "<group>"; };
-		50AD9ACF15F8DF98005D031A /* RGBStrip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBStrip.h; sourceTree = "<group>"; };
 		50AD9AD015F8DFA1005D031A /* MCUDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUDPSocket.h; sourceTree = "<group>"; };
 		50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUDPSocket.m; sourceTree = "<group>"; };
 		50AF0CC015F8D39B00BB3C5F /* REDLEDClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REDLEDClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +53,9 @@
 		50CB647215FE4CBD001C5999 /* UIPColorSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPColorSlider.m; sourceTree = "<group>"; };
 		50CB647415FE4DEC001C5999 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		50CB647615FE5051001C5999 /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
+		50D6C3C5160524A6005E7263 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		50D6C3C916052803005E7263 /* ColorMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMessage.h; sourceTree = "<group>"; };
+		50D6C3CA16052925005E7263 /* ColorArrayMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorArrayMessage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +76,13 @@
 		50288CB01602587E005F6F3A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				50AD9ACF15F8DF98005D031A /* RGBStrip.h */,
 				50288CAC16025874005F6F3A /* RGBColor.h */,
 				50288CAB16025874005F6F3A /* RGBColor.cpp */,
 				50288CAA16025874005F6F3A /* HSBColor.h */,
 				50288CA916025874005F6F3A /* HSBColor.cpp */,
+				50D6C3C5160524A6005E7263 /* Message.h */,
+				50D6C3C916052803005E7263 /* ColorMessage.h */,
+				50D6C3CA16052925005E7263 /* ColorArrayMessage.h */,
 			);
 			name = Shared;
 			sourceTree = "<group>";

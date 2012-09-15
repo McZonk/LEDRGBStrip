@@ -11,18 +11,21 @@
 #include <EthernetDHCP.h>
 #endif
 
-#include "RGBStrip.h"
+#include "ColorMessage.h"
+#include "ColorArrayMessage.h"
+
 #include "HSBColor.h"
 #include "Gamma.h"
 
 EthernetUDP socket;
 
-char messageData[256];
+char messageData[RGBStrip::Message::MaxLength];
 
 LPD8806 ledStrip = LPD8806(LedStripLedCount, LedStripDataPin, LedStripClockPin);
 
+
 void setup()
-{  
+{
   ledStrip.begin();
 
 #if defined(USE_DHCP) && (USE_DHCP > 0)
@@ -75,18 +78,29 @@ void loop()
   {
     socket.read(messageData, messageSize);
     
-    RGBStripMessage& message = *(RGBStripMessage*)messageData;
+    const RGBStrip::Message& message = *(RGBStrip::Message*)messageData;
     
     if(!message.validateChecksum())
     {
+
     }
     else
     {
       switch(message.header.type) {
-        case RGBStripMessageTypeSetRange :
-          hanleRGBStripMessageSetRange((RGBStripMessageSetRange&)message);
+        case RGBStrip::ColorMessage::Type :
+
+          void handleMessage(const RGBStrip::ColorMessage& message);
+          handleMessage((const RGBStrip::ColorMessage&)message);
           break;
+
+        case RGBStrip::ColorArrayMessage::Type :
+
+          void handleMessage(const RGBStrip::ColorArrayMessage& message);
+          handleMessage((const RGBStrip::ColorArrayMessage&)message);
+          break;
+
         default :
+
           break;
       }
     }
@@ -95,21 +109,32 @@ void loop()
   delay(1);
 }
 
-void hanleRGBStripMessageSetRange(const RGBStripMessageSetRange& message)
-{
-  int first = message.firstLED;
-  int last = message.lastLED;
-  if(last > ledStrip.numPixels())
-  {
-    last = ledStrip.numPixels();
+void handleMessage(const RGBStrip::ColorMessage& message) {
+  int offset = message.offset;
+  int count = message.count;
+  if(count > ledStrip.numPixels() - offset) {
+    count = ledStrip.numPixels() - offset;
   }
   
-  HSBColor hsbColor = HSBColor(message.hue, message.saturation, message.brightness);
-  RGBColor rgbColor = hsbColor;
+  RGBColor rgbColor = HSBColor(message.color.h, message.color.s, message.color.b);
   
-  for(int i = first; i <= last; ++i)
-  {
-    ledStrip.setPixelColor(i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
+  for(int i = 0; i <= count; ++i) {
+    ledStrip.setPixelColor(offset + i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
+  }
+  ledStrip.show();
+}
+
+void handleMessage(const RGBStrip::ColorArrayMessage& message) {
+  int offset = message.offset;
+  int count = message.count;
+  if(count > ledStrip.numPixels() - offset) {
+    count = ledStrip.numPixels() - offset;
+  }
+  
+  for(int i = 0; i <= count; ++i) {
+    RGBColor rgbColor = HSBColor(message.colors[i].h, message.colors[i].s, message.colors[i].b);
+
+    ledStrip.setPixelColor(offset + i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
   }
   ledStrip.show();
 }

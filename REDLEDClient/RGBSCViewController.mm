@@ -10,8 +10,8 @@
 
 #import "MCUDPSocket.h"
 
-#import "RGBStrip.h"
-#import "HSBColor.h"
+#import "ColorMessage.h"
+#import "ColorArrayMessage.h"
 
 @interface RGBSCViewController () <NSStreamDelegate>
 
@@ -65,6 +65,28 @@
 - (void)bindToAddress:(NSData*)address
 {
 	self.socket = [[MCUDPSocket alloc] initWithAddress:address];
+	
+#if 0
+	// Test random colors
+	
+	NSMutableData* data = [NSMutableData dataWithLength:RGBStrip::ColorArrayMessage::size(56)];
+	
+	RGBStrip::ColorArrayMessage& message = *(RGBStrip::ColorArrayMessage*)data.mutableBytes;
+	
+	message.fillHeader(56);
+	
+	message.offset = 0;
+	message.count = 56;
+
+	for(NSUInteger index = 0; index < 56; ++index)
+	{
+		message.colors[index] = HSBColor((uint16_t)(rand() % 1536), (uint8_t)(rand() % 255), (uint8_t)(rand() % 256));
+	}
+	
+	message.fillChecksum();
+	
+	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
+#endif
 }
 
 - (IBAction)sliderChanged:(id)sender
@@ -92,18 +114,19 @@
 		[UIColor colorWithHue:h saturation:s brightness:0.0f alpha:1.0f],
 		[UIColor colorWithHue:h saturation:s brightness:1.0f alpha:1.0f],
 	];
+	
+	NSMutableData* data = [NSMutableData dataWithLength:RGBStrip::ColorMessage::size()];
+	
+	RGBStrip::ColorMessage& message = *(RGBStrip::ColorMessage*)data.mutableBytes;
 
-	RGBStripMessageSetRange message;
+	message.fillHeader();
+	
+	message.offset = self.firstStepper.value;
+	message.count = self.lastStepper.value - self.firstStepper.value;
+	
 	message.color = HSBColor(h, s, b);
 	
-	message.firstLED = self.firstStepper.value;
-	message.lastLED = self.lastStepper.value;
-
-	message.animation = 0;
-	
 	message.fillChecksum();
-	
-	NSData* data = message;
 	
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
 }
