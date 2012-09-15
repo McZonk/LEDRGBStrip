@@ -54,11 +54,14 @@ static void* const RGBSCBonjourServiceCellKVOContextBonjourService = (void*)&RGB
 		NSLog(@"%@ = %@", key, value);
 	}
 	
-	NSLog(@"%@", self.bonjourService.addresses);
+//	NSLog(@"%@", self.bonjourService.addresses);
+	
+	NSData* ledsData = [txtRecord objectForKey:@"leds"];
+	NSString* ledsString = [[NSString alloc] initWithData:ledsData encoding:NSASCIIStringEncoding];
 	
 	self.nameView.text = self.bonjourService.name;
 	
-	self.infoView.text = [NSString stringWithFormat:@"%@:%d", self.bonjourService.domain, self.bonjourService.port];
+	self.infoView.text = [NSString stringWithFormat:@"number of leds: %@", ledsString];
 	
 }
 

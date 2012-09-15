@@ -13,9 +13,12 @@
 #import "ColorMessage.h"
 #import "ColorArrayMessage.h"
 
-@interface RGBSCViewController () <NSStreamDelegate>
+@interface RGBSCViewController () <NSNetServiceDelegate>
 
+@property (nonatomic, strong) NSNetService* netService;
 @property (nonatomic, strong) MCUDPSocket* socket;
+
+@property (nonatomic, assign) NSUInteger ledCount;
 
 @end
 
@@ -47,6 +50,11 @@
 	];
 #endif
 	
+	self.firstStepper.maximumValue = self.ledCount;
+	[self.firstStepper sendActionsForControlEvents:UIControlEventValueChanged];
+	self.lastStepper.maximumValue = self.ledCount;
+	[self.lastStepper sendActionsForControlEvents:UIControlEventValueChanged];
+	
 	self.hSlider.value = 0.5f;
 	self.sSlider.value = 1.0f;
 	self.bSlider.value = 1.0f;
@@ -62,9 +70,31 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)bindToAddress:(NSData*)address
+- (void)bindToNetService:(NSNetService*)netService
 {
+	if(self.netService.delegate == self)
+	{
+		self.netService.delegate = nil;
+	}
+	
+	self.netService = netService;
+	self.netService.delegate = self;
+	
+	NSData* address = [self.netService.addresses objectAtIndex:0];
+	
 	self.socket = [[MCUDPSocket alloc] initWithAddress:address];
+	
+	NSDictionary* txtRecord = [NSNetService dictionaryFromTXTRecordData:self.netService.TXTRecordData];
+	
+	{
+		NSData* ledsData = [txtRecord objectForKey:@"leds"];
+		
+		NSString* ledsString = [[NSString alloc] initWithData:ledsData encoding:NSASCIIStringEncoding];
+		
+		self.ledCount = ledsString.integerValue;
+		
+		NSLog(@"leds: %u", self.ledCount);
+	}
 	
 #if 0
 	// Test random colors
@@ -140,5 +170,18 @@
 {
 	self.lastTextView.text = [NSString stringWithFormat:@"%.0f", self.lastStepper.value];
 }
+
+#pragma mark - NSNetServiceDelegate
+
+- (void)netServiceDidStop:(NSNetService *)sender
+{
+//	[self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data
+{
+	
+}
+
 
 @end

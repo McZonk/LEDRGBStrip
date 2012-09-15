@@ -89,9 +89,8 @@
 	
 	RGBSCViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RGBSCViewController"];
 	NSLog(@"%@", viewController);
-	
-	NSData* address = [bonjourService.addresses objectAtIndex:0];
-	[viewController bindToAddress:address];
+
+	[viewController bindToNetService:bonjourService];
 	
 	[self.navigationController pushViewController:viewController animated:YES];
 }
@@ -123,7 +122,12 @@
 
 - (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser didRemoveService:(NSNetService*)netService moreComing:(BOOL)moreComing
 {
-	netService.delegate = nil;
+	NSLog(@"%s %@", __PRETTY_FUNCTION__, netService);
+
+	if(netService.delegate == self)
+	{
+		netService.delegate = nil;
+	}
 	
 	[self.unresolvedBonjourServices removeObject:netService];
 	[self.resolvedBonjourServices removeObject:netService];
@@ -144,11 +148,6 @@
 	[self.resolvedBonjourServices addObject:netService];
 	
 	[self.tableView reloadData];
-}
-
-- (void)netServiceDidStop:(NSNetService*)netService
-{
-	NSLog(@"%s %@", __PRETTY_FUNCTION__, netService);
 }
 
 @end

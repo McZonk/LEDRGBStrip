@@ -12,7 +12,7 @@
 
 @interface RGBSCViewController : UIViewController
 
-- (void)bindToAddress:(NSData*)address;
+- (void)bindToNetService:(NSNetService*)netService;
 
 @property (nonatomic, strong) IBOutlet UIPColorSlider* hSlider;
 @property (nonatomic, strong) IBOutlet UIPColorSlider* sSlider;
