@@ -46,7 +46,13 @@ void setup()
   snprintf(serviceName, sizeof(serviceName), "%s._rgbled", LocationName);
 
   char txtRecord[64];
-  snprintf(txtRecord, sizeof(txtRecord), "leds=%u", LedStripLedCount);
+  int index = 0;
+  {
+    int length = snprintf(txtRecord+index+1, sizeof(txtRecord)-(index+1), "leds=%u", LedStripLedCount);
+    txtRecord[index] = length;
+    index += 1 + length;
+  }
+
 
   EthernetBonjour.begin("arduino");
   EthernetBonjour.addServiceRecord(serviceName, port, MDNSServiceUDP, txtRecord);

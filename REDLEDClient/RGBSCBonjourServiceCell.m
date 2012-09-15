@@ -44,7 +44,15 @@ static void* const RGBSCBonjourServiceCellKVOContextBonjourService = (void*)&RGB
 //	self.bonjourService.name
 	
 	NSDictionary* txtRecord = [NSNetService dictionaryFromTXTRecordData:self.bonjourService.TXTRecordData];
-	NSLog(@"%@", txtRecord);
+	//NSLog(@"> %@", txtRecord);
+	for(NSString* key in txtRecord)
+	{
+		NSData* data = [txtRecord objectForKey:key];
+		
+		NSString* value = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+		
+		NSLog(@"%@ = %@", key, value);
+	}
 	
 	NSLog(@"%@", self.bonjourService.addresses);
 	

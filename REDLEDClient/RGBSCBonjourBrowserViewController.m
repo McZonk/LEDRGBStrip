@@ -146,4 +146,9 @@
 	[self.tableView reloadData];
 }
 
+- (void)netServiceDidStop:(NSNetService*)netService
+{
+	NSLog(@"%s %@", __PRETTY_FUNCTION__, netService);
+}
+
 @end
