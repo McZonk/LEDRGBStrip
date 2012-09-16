@@ -9,7 +9,7 @@ byte ip[] = { 192, 168, 178, 154 };
 
 int port = 1403;
 
-const int LedStripLedCount = 56;
+const int LedStripLedCount = 64;
 const int LedStripDataPin  = 2;
 const int LedStripClockPin = 3;
 

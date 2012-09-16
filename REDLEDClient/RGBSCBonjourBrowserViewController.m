@@ -36,7 +36,7 @@
 		self.bonjourBrowser = [[NSNetServiceBrowser alloc] init];
 		self.bonjourBrowser.delegate = self;
 		
-		[self.bonjourBrowser scheduleInRunLoop:NSRunLoop.currentRunLoop forMode:NSRunLoopCommonModes];
+		//[self.bonjourBrowser scheduleInRunLoop:NSRunLoop.currentRunLoop forMode:NSRunLoopCommonModes];
 		
 		[self.bonjourBrowser searchForServicesOfType:@"_rgbled._udp" inDomain:nil];
 	}
@@ -45,7 +45,7 @@
 
 - (void)dealloc
 {
-	[self.bonjourBrowser removeFromRunLoop:NSRunLoop.currentRunLoop forMode:NSRunLoopCommonModes];
+	//[self.bonjourBrowser removeFromRunLoop:NSRunLoop.currentRunLoop forMode:NSRunLoopCommonModes];
 	self.bonjourBrowser.delegate = nil;
 }
 
