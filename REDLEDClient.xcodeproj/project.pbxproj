@@ -18,7 +18,7 @@
 		50AF0CC915F8D39B00BB3C5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC815F8D39B00BB3C5F /* CoreGraphics.framework */; };
 		50AF0CCF15F8D39B00BB3C5F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CCD15F8D39B00BB3C5F /* InfoPlist.strings */; };
 		50AF0CD115F8D39B00BB3C5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD015F8D39B00BB3C5F /* main.m */; };
-		50AF0CD515F8D39B00BB3C5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */; };
+		50AF0CD515F8D39B00BB3C5F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */; };
 		50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */; };
 		50CB647315FE4CBD001C5999 /* UIPColorSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CB647215FE4CBD001C5999 /* UIPColorSlider.m */; };
 		50CB647515FE4DEC001C5999 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CB647415FE4DEC001C5999 /* QuartzCore.framework */; };
@@ -47,7 +47,7 @@
 		50AF0CD015F8D39B00BB3C5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50AF0CD215F8D39B00BB3C5F /* REDLEDClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "REDLEDClient-Prefix.pch"; sourceTree = "<group>"; };
 		50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		50AF0CD715F8D39B00BB3C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		50CB647115FE4CBD001C5999 /* UIPColorSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPColorSlider.h; sourceTree = "<group>"; };
 		50CB647215FE4CBD001C5999 /* UIPColorSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPColorSlider.m; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */,
-				50AF0CD415F8D39B00BB3C5F /* AppDelegate.m */,
+				50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */,
 				50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */,
 				50A27AD715FB900600B0D39B /* RGBSCBonjourBrowserViewController.h */,
 				50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */,
@@ -216,7 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AF0CD115F8D39B00BB3C5F /* main.m in Sources */,
-				50AF0CD515F8D39B00BB3C5F /* AppDelegate.m in Sources */,
+				50AF0CD515F8D39B00BB3C5F /* AppDelegate.mm in Sources */,
 				50AD9AD215F8DFA1005D031A /* MCUDPSocket.m in Sources */,
 				50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */,
 				50A27ADD15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m in Sources */,

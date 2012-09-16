@@ -19,6 +19,8 @@ public:
 	void normalizeSelf();
 
 	operator RGBColor() const;
+	
+	friend HSBColor lerp(const HSBColor c0, const HSBColor c1, const int16_t time);
 
 public:
 	union {

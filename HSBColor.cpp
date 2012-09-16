@@ -52,3 +52,21 @@ HSBColor::operator RGBColor() const {
   
 	return color;
 }
+
+HSBColor lerp(const HSBColor c0, const HSBColor c1, int16_t time) {
+	if(time < 0) {
+		time = 0;
+	} else if(time > 256) {
+		time = 256;
+	}
+	
+	// a + (b - a) * t
+	
+	HSBColor r;
+	
+	r.h = c0.h + ((((int32_t)c1.h - (int32_t)c0.h) * time) >> 8);
+	r.s = c0.s + ((((int16_t)c1.s - (int16_t)c0.s) * time) >> 8);
+	r.b = c0.b + ((((int16_t)c1.b - (int16_t)c0.b) * time) >> 8);
+	
+	return r;
+}
