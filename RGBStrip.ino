@@ -122,25 +122,9 @@ void loop()
 }
 
 void ledUpdate() {
-  static int animation = 0;
-  animation += 1;
-  animation %= LedStripLedCount;
-  
-  for(int i = 0; i < 56; ++i) {
+  for(int i = 0; i < LedStripLedCount; ++i) {
     HSBColor currentColor = currentColors[i];
-    
-    if(animation == i) {
-      currentColor.b = (currentColor.b * 256) >> 8;
-    } else if((animation+1)%LedStripLedCount == i || (animation+LedStripLedCount-1)%LedStripLedCount == i) {
-      currentColor.b = (currentColor.b * 192) >> 8;
-    } else if((animation+2)%LedStripLedCount == i || (animation+LedStripLedCount-2)%LedStripLedCount == i) {
-      currentColor.b = (currentColor.b * 128) >> 8;
-    } else if((animation+3)%LedStripLedCount == i || (animation+LedStripLedCount-3)%LedStripLedCount == i) {
-      currentColor.b = (currentColor.b * 64) >> 8;
-    } else {
-      currentColor.b = 0;
-    }
-    
+     
     RGBColor rgbColor = currentColor;
     
     ledStrip.setPixelColor(i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
