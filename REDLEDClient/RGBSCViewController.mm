@@ -130,7 +130,7 @@
 	message.fillHeader(7);
 	
 	message.offset = 0;
-	message.count = 56;
+	message.count = 7;
 
 	message.keys[0].index = 0;
 	message.keys[0].color = HSBColor((uint16_t)   0, (uint8_t)255, (uint8_t)255);

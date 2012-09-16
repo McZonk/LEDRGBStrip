@@ -13,6 +13,7 @@
 
 #include "ColorMessage.h"
 #include "ColorArrayMessage.h"
+#include "ColorListMessage.h"
 
 #include "HSBColor.h"
 #include "Gamma.h"
@@ -24,6 +25,8 @@ LPD8806 ledStrip = LPD8806(LedStripLedCount, LedStripDataPin, LedStripClockPin);
 
 void setup()
 {
+  Serial.begin(9600);
+  
   ledStrip.begin();
 
 #if defined(USE_DHCP) && (USE_DHCP > 0)
@@ -88,6 +91,14 @@ void loop()
           void handleColorArrayMessage(Stream& stream);
           handleColorArrayMessage(socket);
           break;
+          
+       case RGBStrip::ColorListMessage::Type :
+       
+         Serial.println("ColorList");
+       
+          void handleColorListMessage(Stream& stream);
+          handleColorListMessage(socket);
+          break;
 
         default :
 
@@ -148,3 +159,38 @@ void handleColorArrayMessage(Stream& stream) {
   ledStrip.show();
 }
 
+void handleColorListMessage(Stream& stream) {
+  uint16_t offset = 0;
+  stream.readBytes((char*)&offset, sizeof(offset));
+  
+  uint16_t count = 0;
+  stream.readBytes((char*)&count, sizeof(count));
+
+  if(count > 0) {
+    RGBStrip::ColorListMessage::Key pKey;
+    stream.readBytes((char*)&pKey, sizeof(pKey));
+  
+    Serial.println(pKey.index, DEC);
+  
+    for(int i = 1; i < count; ++i) {
+      RGBStrip::ColorListMessage::Key cKey;
+      stream.readBytes((char*)&cKey, sizeof(cKey));
+      
+      Serial.println(cKey.index, DEC);
+
+      RGBColor rgbColor = pKey.color;
+      
+      for(int j = pKey.index; j <= cKey.index; ++j) {
+        if(offset + j >= LedStripLedCount) {
+          break;
+        }
+        
+        ledStrip.setPixelColor(offset + j, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
+      }
+      
+      pKey = cKey;
+    }
+    
+    ledStrip.show();
+  }
+}
