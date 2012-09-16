@@ -39,6 +39,8 @@
 		//[self.bonjourBrowser scheduleInRunLoop:NSRunLoop.currentRunLoop forMode:NSRunLoopCommonModes];
 		
 		[self.bonjourBrowser searchForServicesOfType:@"_rgbled._udp" inDomain:nil];
+		
+		self.title = NSLocalizedString(@"<BonjourBrowserTitle>", nil);
 	}
 	return self;
 }

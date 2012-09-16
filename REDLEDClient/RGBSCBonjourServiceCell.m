@@ -41,10 +41,9 @@ static void* const RGBSCBonjourServiceCellKVOContextBonjourService = (void*)&RGB
 
 - (void)updateView
 {
-//	self.bonjourService.name
-	
 	NSDictionary* txtRecord = [NSNetService dictionaryFromTXTRecordData:self.bonjourService.TXTRecordData];
-	//NSLog(@"> %@", txtRecord);
+	
+#if 0
 	for(NSString* key in txtRecord)
 	{
 		NSData* data = [txtRecord objectForKey:key];
@@ -53,15 +52,14 @@ static void* const RGBSCBonjourServiceCellKVOContextBonjourService = (void*)&RGB
 		
 		NSLog(@"%@ = %@", key, value);
 	}
-	
-//	NSLog(@"%@", self.bonjourService.addresses);
+#endif
 	
 	NSData* ledsData = [txtRecord objectForKey:@"leds"];
 	NSString* ledsString = [[NSString alloc] initWithData:ledsData encoding:NSASCIIStringEncoding];
 	
-	self.nameView.text = self.bonjourService.name;
+	self.textLabel.text = self.bonjourService.name;
 	
-	self.infoView.text = [NSString stringWithFormat:@"number of leds: %@", ledsString];
+	self.detailTextLabel.text = ledsString;
 	
 }
 

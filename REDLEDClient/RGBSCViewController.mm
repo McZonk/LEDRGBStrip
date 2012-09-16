@@ -57,6 +57,8 @@
 	self.netService = netService;
 	self.netService.delegate = self;
 	
+	self.title = self.netService.name;
+	
 	NSData* address = [self.netService.addresses objectAtIndex:0];
 	
 	self.socket = [[MCUDPSocket alloc] initWithAddress:address];

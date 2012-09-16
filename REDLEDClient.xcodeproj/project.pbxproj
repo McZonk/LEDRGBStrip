@@ -10,6 +10,7 @@
 		4C3028051605D853004AC24C /* UIPRangeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3028041605D853004AC24C /* UIPRangeSelector.m */; };
 		4C3028091605EB4B004AC24C /* Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3028071605EB4B004AC24C /* Highlight.png */; };
 		4C30280A1605EB4B004AC24C /* Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3028081605EB4B004AC24C /* Highlight@2x.png */; };
+		4CE04F02160606C40072D906 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CE04F04160606C40072D906 /* Localizable.strings */; };
 		50288CAD16025874005F6F3A /* HSBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CA916025874005F6F3A /* HSBColor.cpp */; };
 		50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CAB16025874005F6F3A /* RGBColor.cpp */; };
 		50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */; };
@@ -19,7 +20,6 @@
 		50AF0CC515F8D39B00BB3C5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC415F8D39B00BB3C5F /* UIKit.framework */; };
 		50AF0CC715F8D39B00BB3C5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC615F8D39B00BB3C5F /* Foundation.framework */; };
 		50AF0CC915F8D39B00BB3C5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC815F8D39B00BB3C5F /* CoreGraphics.framework */; };
-		50AF0CCF15F8D39B00BB3C5F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CCD15F8D39B00BB3C5F /* InfoPlist.strings */; };
 		50AF0CD115F8D39B00BB3C5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD015F8D39B00BB3C5F /* main.m */; };
 		50AF0CD515F8D39B00BB3C5F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */; };
 		50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */; };
@@ -33,6 +33,7 @@
 		4C3028041605D853004AC24C /* UIPRangeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPRangeSelector.m; sourceTree = "<group>"; };
 		4C3028071605EB4B004AC24C /* Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highlight.png; sourceTree = "<group>"; };
 		4C3028081605EB4B004AC24C /* Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Highlight@2x.png"; sourceTree = "<group>"; };
+		4CE04F03160606C40072D906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50288CA916025874005F6F3A /* HSBColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HSBColor.cpp; sourceTree = "<group>"; };
 		50288CAA16025874005F6F3A /* HSBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBColor.h; sourceTree = "<group>"; };
 		50288CAB16025874005F6F3A /* RGBColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RGBColor.cpp; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		50AF0CC615F8D39B00BB3C5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		50AF0CC815F8D39B00BB3C5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		50AF0CCC15F8D39B00BB3C5F /* REDLEDClient-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "REDLEDClient-Info.plist"; sourceTree = "<group>"; };
-		50AF0CCE15F8D39B00BB3C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50AF0CD015F8D39B00BB3C5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50AF0CD215F8D39B00BB3C5F /* REDLEDClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "REDLEDClient-Prefix.pch"; sourceTree = "<group>"; };
 		50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -155,9 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				50AF0CCC15F8D39B00BB3C5F /* REDLEDClient-Info.plist */,
-				50AF0CCD15F8D39B00BB3C5F /* InfoPlist.strings */,
 				50AF0CD015F8D39B00BB3C5F /* main.m */,
 				50AF0CD215F8D39B00BB3C5F /* REDLEDClient-Prefix.pch */,
+				4CE04F04160606C40072D906 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,11 +213,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50AF0CCF15F8D39B00BB3C5F /* InfoPlist.strings in Resources */,
 				50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */,
 				50CB647715FE5051001C5999 /* Circle.png in Resources */,
 				4C3028091605EB4B004AC24C /* Highlight.png in Resources */,
 				4C30280A1605EB4B004AC24C /* Highlight@2x.png in Resources */,
+				4CE04F02160606C40072D906 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,12 +244,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		50AF0CCD15F8D39B00BB3C5F /* InfoPlist.strings */ = {
+		4CE04F04160606C40072D906 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				50AF0CCE15F8D39B00BB3C5F /* en */,
+				4CE04F03160606C40072D906 /* en */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */ = {
