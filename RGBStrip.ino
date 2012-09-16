@@ -120,7 +120,7 @@ void handleColorMessage(Stream& stream) {
   
   RGBColor rgbColor = hsbColor;
   
-  for(int i = 0; i <= count; ++i) {
+  for(int i = 0; i < count; ++i) {
     ledStrip.setPixelColor(offset + i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
   }
   ledStrip.show();
@@ -137,7 +137,7 @@ void handleColorArrayMessage(Stream& stream) {
     count = ledStrip.numPixels() - offset;
   }
   
-  for(int i = 0; i <= count; ++i) {
+  for(int i = 0; i < count; ++i) {
     HSBColor hsbColor;
     stream.readBytes((char*)&hsbColor, sizeof(hsbColor));
     
