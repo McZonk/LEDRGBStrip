@@ -84,6 +84,12 @@ static void* const UIPRangeSelectorMaxRangeChangedContext = (void*)&UIPRangeSele
 
 #pragma mark - Touch handling
 
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+	UIEdgeInsets hitBoxEdgeInsets = UIEdgeInsetsMake(0.0f, -16.0f, 0.0f, -16.0f);
+	CGRect hitBox = UIEdgeInsetsInsetRect(self.bounds, hitBoxEdgeInsets);
+	return CGRectContainsPoint(hitBox, point);
+}
+
 - (void)panRecognized:(UIGestureRecognizer*)recognizer {
 	if (recognizer.state == UIGestureRecognizerStateBegan || self.lastNumberOfTouches != recognizer.numberOfTouches) {
 		self.beginningTouchPoint = (recognizer.numberOfTouches > 0 ? [recognizer locationOfTouch:0 inView:self] : CGPointZero);

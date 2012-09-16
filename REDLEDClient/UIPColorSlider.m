@@ -96,6 +96,13 @@ static void* const UIPColorSliderValueKVOContext = (void*)&UIPColorSliderValueKV
 	}
 }
 
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+	UIEdgeInsets hitBoxEdgeInsets = UIEdgeInsetsMake(0.0f, -16.0f, 0.0f, -16.0f);
+	CGRect hitBox = UIEdgeInsetsInsetRect(self.bounds, hitBoxEdgeInsets);
+	return CGRectContainsPoint(hitBox, point);
+}
+
 - (CGFloat)valueForTouch:(UITouch*)touch
 {
 	CGFloat x = [touch locationInView:self].x;
