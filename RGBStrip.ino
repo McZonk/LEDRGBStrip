@@ -19,8 +19,6 @@
 
 EthernetUDP socket;
 
-char messageData[RGBStrip::Message::MaxLength];
-
 LPD8806 ledStrip = LPD8806(LedStripLedCount, LedStripDataPin, LedStripClockPin);
 
 
@@ -71,38 +69,24 @@ void loop()
   // Maintain Bonjour
   EthernetBonjour.run();
   
-  int messageSize = socket.parsePacket();
-  if(messageSize > sizeof(messageData))
-  {
-    // oversized packet, read until done
-    for(int i = 0; i < messageSize; i += sizeof(messageData))
-    {
-      socket.read(messageData, sizeof(messageData));
-    }
-  }
-  else if(messageSize > 0)
-  {
-    socket.read(messageData, messageSize);
+  int messageLength = socket.parsePacket();
+  if(messageLength > 0) {
+    RGBStrip::Message::Header header;
     
-    const RGBStrip::Message& message = *(RGBStrip::Message*)messageData;
+    socket.readBytes((char*)&header, sizeof(header));
     
-    if(!message.validateChecksum())
-    {
-
-    }
-    else
-    {
-      switch(message.header.type) {
+    if(messageLength == header.length) {
+      switch(header.type) {
         case RGBStrip::ColorMessage::Type :
 
-          void handleMessage(const RGBStrip::ColorMessage& message);
-          handleMessage((const RGBStrip::ColorMessage&)message);
+          void handleColorMessage(Stream& stream);
+          handleColorMessage(socket);
           break;
 
         case RGBStrip::ColorArrayMessage::Type :
 
-          void handleMessage(const RGBStrip::ColorArrayMessage& message);
-          handleMessage((const RGBStrip::ColorArrayMessage&)message);
+          void handleColorArrayMessage(Stream& stream);
+          handleColorArrayMessage(socket);
           break;
 
         default :
@@ -110,19 +94,31 @@ void loop()
           break;
       }
     }
+
+    // empty the buffer    
+    while(socket.available() > 0) {
+      socket.read();
+    }
   }
     
   delay(1);
 }
 
-void handleMessage(const RGBStrip::ColorMessage& message) {
-  int offset = message.offset;
-  int count = message.count;
+void handleColorMessage(Stream& stream) {
+  uint16_t offset = 0;
+  stream.readBytes((char*)&offset, sizeof(offset));
+
+  uint16_t count = 0;  
+  stream.readBytes((char*)&count, sizeof(count));
+  
   if(count > ledStrip.numPixels() - offset) {
     count = ledStrip.numPixels() - offset;
   }
   
-  RGBColor rgbColor = HSBColor(message.color.h, message.color.s, message.color.b);
+  HSBColor hsbColor;
+  stream.readBytes((char*)&hsbColor, sizeof(hsbColor));
+  
+  RGBColor rgbColor = hsbColor;
   
   for(int i = 0; i <= count; ++i) {
     ledStrip.setPixelColor(offset + i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
@@ -130,15 +126,22 @@ void handleMessage(const RGBStrip::ColorMessage& message) {
   ledStrip.show();
 }
 
-void handleMessage(const RGBStrip::ColorArrayMessage& message) {
-  int offset = message.offset;
-  int count = message.count;
+void handleColorArrayMessage(Stream& stream) {
+  uint16_t offset = 0;
+  stream.readBytes((char*)&offset, sizeof(offset));
+  
+  uint16_t count = 0;
+  stream.readBytes((char*)&count, sizeof(count));
+  
   if(count > ledStrip.numPixels() - offset) {
     count = ledStrip.numPixels() - offset;
   }
   
   for(int i = 0; i <= count; ++i) {
-    RGBColor rgbColor = HSBColor(message.colors[i].h, message.colors[i].s, message.colors[i].b);
+    HSBColor hsbColor;
+    stream.readBytes((char*)&hsbColor, sizeof(hsbColor));
+    
+    RGBColor rgbColor = hsbColor;
 
     ledStrip.setPixelColor(offset + i, GammaCorretion(rgbColor.r), GammaCorretion(rgbColor.g), GammaCorretion(rgbColor.b));
   }

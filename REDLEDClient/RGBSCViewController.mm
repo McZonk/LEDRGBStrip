@@ -113,8 +113,6 @@
 		message.colors[index] = HSBColor((uint16_t)(rand() % 1536), (uint8_t)(rand() % 255), (uint8_t)(rand() % 256));
 	}
 	
-	message.fillChecksum();
-	
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
 #endif
 }
@@ -155,8 +153,6 @@
 	message.count = self.lastStepper.value - self.firstStepper.value;
 	
 	message.color = HSBColor(h, s, b);
-	
-	message.fillChecksum();
 	
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
 }
