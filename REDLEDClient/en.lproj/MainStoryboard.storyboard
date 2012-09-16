@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="OFO-4r-cIJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="OFO-4r-cIJ">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -102,20 +102,6 @@
                                     <action selector="sliderChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="Cum-TS-vXB"/>
                                 </connections>
                             </view>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="56" id="1EH-qy-aXv">
-                                <rect key="frame" x="20" y="259" width="94" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="firstLEDChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="8to-eP-7up"/>
-                                </connections>
-                            </stepper>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="56" maximumValue="56" id="Xgr-aI-wIz">
-                                <rect key="frame" x="206" y="259" width="94" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="lastLEDChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="Pxa-z1-RMi"/>
-                                </connections>
-                            </stepper>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yj0-H5-8V9">
                                 <rect key="frame" x="20" y="230" width="94" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -130,17 +116,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="Lis-ua-W8n" customClass="UIPRangeSelector">
+                                <rect key="frame" x="20" y="259" width="280" height="60"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="ledRangeChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="KWB-Hr-q1W"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fyc-N7-jI3"/>
                     <connections>
                         <outlet property="bSlider" destination="69l-iC-RKK" id="ZN3-GP-GIB"/>
-                        <outlet property="firstStepper" destination="1EH-qy-aXv" id="Smc-GV-fzM"/>
                         <outlet property="firstTextView" destination="yj0-H5-8V9" id="gE0-sG-bUL"/>
                         <outlet property="hSlider" destination="dbx-bB-aAG" id="uZv-E7-LjQ"/>
-                        <outlet property="lastStepper" destination="Xgr-aI-wIz" id="ggL-ba-Mu0"/>
                         <outlet property="lastTextView" destination="sgQ-rS-ZOF" id="Vnq-lS-tkW"/>
+                        <outlet property="rangeSlider" destination="Lis-ua-W8n" id="1sH-sN-WSw"/>
                         <outlet property="sSlider" destination="TJx-Rt-SSn" id="0eN-Vt-kbK"/>
                     </connections>
                 </viewController>
@@ -163,20 +156,21 @@
         <class className="RGBSCViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCViewController.h"/>
             <relationships>
-                <relationship kind="action" name="firstLEDChanged:"/>
-                <relationship kind="action" name="lastLEDChanged:"/>
+                <relationship kind="action" name="ledRangeChanged:"/>
                 <relationship kind="action" name="sliderChanged:"/>
                 <relationship kind="outlet" name="bSlider" candidateClass="UIPColorSlider"/>
-                <relationship kind="outlet" name="firstStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="firstTextView" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="hSlider" candidateClass="UIPColorSlider"/>
-                <relationship kind="outlet" name="lastStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="lastTextView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rangeSlider" candidateClass="UIPRangeSelector"/>
                 <relationship kind="outlet" name="sSlider" candidateClass="UIPColorSlider"/>
             </relationships>
         </class>
         <class className="UIPColorSlider" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPColorSlider.h"/>
+        </class>
+        <class className="UIPRangeSelector" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPRangeSelector.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

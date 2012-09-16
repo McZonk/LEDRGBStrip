@@ -29,41 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-#if 0
-	self.hSlider.colors = @[
-		UIColor.redColor,
-		UIColor.yellowColor,
-		UIColor.greenColor,
-		UIColor.cyanColor,
-		UIColor.blueColor,
-		UIColor.magentaColor,
-		UIColor.redColor,
-	];
-	
-	self.sSlider.colors = @[
-		UIColor.whiteColor,
-		UIColor.redColor,
-	];
-	
-	self.bSlider.colors = @[
-		UIColor.blackColor,
-		UIColor.redColor,
-	];
-#endif
-	
-	self.firstStepper.minimumValue = 1;
-	self.firstStepper.maximumValue = self.ledCount;
-	self.firstStepper.value = self.firstStepper.minimumValue;
-	[self.firstStepper sendActionsForControlEvents:UIControlEventValueChanged];
-	self.lastStepper.minimumValue = 1;
-	self.lastStepper.maximumValue = self.ledCount;
-	self.lastStepper.value = self.lastStepper.maximumValue;
-	[self.lastStepper sendActionsForControlEvents:UIControlEventValueChanged];
-	
+		
 	self.hSlider.value = 0.5f;
 	self.sSlider.value = 1.0f;
 	self.bSlider.value = 1.0f;
+	
+	self.rangeSlider.maximumRange = NSMakeRange(0, self.ledCount);
 }
 
 - (void)viewDidUnload
@@ -189,23 +160,21 @@
 
 	message.fillHeader();
 	
-	message.offset = self.firstStepper.value - 1;
-	message.count = self.lastStepper.value - self.firstStepper.value;
+	message.offset = self.rangeSlider.value.location;
+	message.count = self.rangeSlider.value.length;
 	
 	message.color = HSBColor(h, s, b);
 	
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
 }
 
-- (IBAction)firstLEDChanged:(id)sender
+- (IBAction)ledRangeChanged:(id)sender
 {
-	self.firstTextView.text = [NSString stringWithFormat:@"%.0f", self.firstStepper.value];
+	self.firstTextView.text = [NSString stringWithFormat:@"%d", self.rangeSlider.value.location+1];
+	self.lastTextView.text = [NSString stringWithFormat:@"%d", NSMaxRange(self.rangeSlider.value)];
 }
 
-- (IBAction)lastLEDChanged:(id)sender
-{
-	self.lastTextView.text = [NSString stringWithFormat:@"%.0f", self.lastStepper.value];
-}
+
 
 #pragma mark - NSNetServiceDelegate
 

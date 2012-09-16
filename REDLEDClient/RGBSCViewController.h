@@ -9,24 +9,23 @@
 #import <UIKit/UIKit.h>
 
 #import "UIPColorSlider.h"
+#import "UIPRangeSelector.h"
+
 
 @interface RGBSCViewController : UIViewController
 
 - (void)bindToNetService:(NSNetService*)netService;
 
-@property (nonatomic, strong) IBOutlet UIPColorSlider* hSlider;
-@property (nonatomic, strong) IBOutlet UIPColorSlider* sSlider;
-@property (nonatomic, strong) IBOutlet UIPColorSlider* bSlider;
+@property (nonatomic, weak, readonly) IBOutlet UIPColorSlider* hSlider;
+@property (nonatomic, weak, readonly) IBOutlet UIPColorSlider* sSlider;
+@property (nonatomic, weak, readonly) IBOutlet UIPColorSlider* bSlider;
+@property (nonatomic, weak, readonly) IBOutlet UIPRangeSelector* rangeSlider;
 
-@property (nonatomic, strong) IBOutlet UIStepper* firstStepper;
-@property (nonatomic, strong) IBOutlet UIStepper* lastStepper;
+@property (nonatomic, weak, readonly) IBOutlet UILabel* firstTextView;
+@property (nonatomic, weak, readonly) IBOutlet UILabel* lastTextView;
 
-@property (nonatomic, strong) IBOutlet UILabel* firstTextView;
-@property (nonatomic, strong) IBOutlet UILabel* lastTextView;
 
 - (IBAction)sliderChanged:(id)sender;
-
-- (IBAction)firstLEDChanged:(id)sender;
-- (IBAction)lastLEDChanged:(id)sender;
+- (IBAction)ledRangeChanged:(id)sender;
 
 @end

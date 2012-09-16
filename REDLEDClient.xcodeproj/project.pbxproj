@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C3028051605D853004AC24C /* UIPRangeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3028041605D853004AC24C /* UIPRangeSelector.m */; };
+		4C3028091605EB4B004AC24C /* Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3028071605EB4B004AC24C /* Highlight.png */; };
+		4C30280A1605EB4B004AC24C /* Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3028081605EB4B004AC24C /* Highlight@2x.png */; };
 		50288CAD16025874005F6F3A /* HSBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CA916025874005F6F3A /* HSBColor.cpp */; };
 		50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CAB16025874005F6F3A /* RGBColor.cpp */; };
 		50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */; };
@@ -26,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C3028031605D853004AC24C /* UIPRangeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPRangeSelector.h; sourceTree = "<group>"; };
+		4C3028041605D853004AC24C /* UIPRangeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPRangeSelector.m; sourceTree = "<group>"; };
+		4C3028071605EB4B004AC24C /* Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highlight.png; sourceTree = "<group>"; };
+		4C3028081605EB4B004AC24C /* Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Highlight@2x.png"; sourceTree = "<group>"; };
 		50288CA916025874005F6F3A /* HSBColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HSBColor.cpp; sourceTree = "<group>"; };
 		50288CAA16025874005F6F3A /* HSBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBColor.h; sourceTree = "<group>"; };
 		50288CAB16025874005F6F3A /* RGBColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RGBColor.cpp; sourceTree = "<group>"; };
@@ -134,7 +141,11 @@
 				50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */,
 				50CB647115FE4CBD001C5999 /* UIPColorSlider.h */,
 				50CB647215FE4CBD001C5999 /* UIPColorSlider.m */,
+				4C3028031605D853004AC24C /* UIPRangeSelector.h */,
+				4C3028041605D853004AC24C /* UIPRangeSelector.m */,
 				50CB647615FE5051001C5999 /* Circle.png */,
+				4C3028071605EB4B004AC24C /* Highlight.png */,
+				4C3028081605EB4B004AC24C /* Highlight@2x.png */,
 				50AF0CCB15F8D39B00BB3C5F /* Supporting Files */,
 			);
 			path = REDLEDClient;
@@ -205,6 +216,8 @@
 				50AF0CCF15F8D39B00BB3C5F /* InfoPlist.strings in Resources */,
 				50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */,
 				50CB647715FE5051001C5999 /* Circle.png in Resources */,
+				4C3028091605EB4B004AC24C /* Highlight.png in Resources */,
+				4C30280A1605EB4B004AC24C /* Highlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +237,7 @@
 				50CB647315FE4CBD001C5999 /* UIPColorSlider.m in Sources */,
 				50288CAD16025874005F6F3A /* HSBColor.cpp in Sources */,
 				50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */,
+				4C3028051605D853004AC24C /* UIPRangeSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
