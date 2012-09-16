@@ -56,6 +56,7 @@
 		50D6C3C5160524A6005E7263 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		50D6C3C916052803005E7263 /* ColorMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMessage.h; sourceTree = "<group>"; };
 		50D6C3CA16052925005E7263 /* ColorArrayMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorArrayMessage.h; sourceTree = "<group>"; };
+		50D6C3D31605D09F005E7263 /* ColorListMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorListMessage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				50D6C3C5160524A6005E7263 /* Message.h */,
 				50D6C3C916052803005E7263 /* ColorMessage.h */,
 				50D6C3CA16052925005E7263 /* ColorArrayMessage.h */,
+				50D6C3D31605D09F005E7263 /* ColorListMessage.h */,
 			);
 			name = Shared;
 			sourceTree = "<group>";

@@ -12,6 +12,8 @@
 
 #import "ColorMessage.h"
 #import "ColorArrayMessage.h"
+#import "ColorListMessage.h"
+
 
 @interface RGBSCViewController () <NSNetServiceDelegate>
 
@@ -113,6 +115,40 @@
 		message.colors[index] = HSBColor((uint16_t)(rand() % 1536), (uint8_t)(rand() % 255), (uint8_t)(rand() % 256));
 	}
 	
+	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
+#elif 1
+	// Test list
+	
+	NSMutableData* data = [NSMutableData dataWithLength:RGBStrip::ColorListMessage::size(7)];
+	
+	RGBStrip::ColorListMessage& message = *(RGBStrip::ColorListMessage*)data.mutableBytes;
+	
+	message.fillHeader(7);
+	
+	message.offset = 0;
+	message.count = 56;
+
+	message.keys[0].index = 0;
+	message.keys[0].color = HSBColor((uint16_t)   0, (uint8_t)255, (uint8_t)255);
+
+	message.keys[1].index = 8;
+	message.keys[1].color = HSBColor((uint16_t) 256, (uint8_t)255, (uint8_t)255);
+
+	message.keys[2].index = 16;
+	message.keys[2].color = HSBColor((uint16_t) 512, (uint8_t)255, (uint8_t)255);
+
+	message.keys[3].index = 32;
+	message.keys[3].color = HSBColor((uint16_t) 768, (uint8_t)255, (uint8_t)255);
+
+	message.keys[4].index = 40;
+	message.keys[4].color = HSBColor((uint16_t)1024, (uint8_t)255, (uint8_t)255);
+
+	message.keys[5].index = 48;
+	message.keys[5].color = HSBColor((uint16_t)1280, (uint8_t)255, (uint8_t)255);
+
+	message.keys[6].index = 55;
+	message.keys[6].color = HSBColor((uint16_t)1536 - 32, (uint8_t)255, (uint8_t)255);
+
 	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
 #endif
 }
