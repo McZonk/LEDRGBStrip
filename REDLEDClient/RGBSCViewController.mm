@@ -50,9 +50,13 @@
 	];
 #endif
 	
+	self.firstStepper.minimumValue = 1;
 	self.firstStepper.maximumValue = self.ledCount;
+	self.firstStepper.value = self.firstStepper.minimumValue;
 	[self.firstStepper sendActionsForControlEvents:UIControlEventValueChanged];
+	self.lastStepper.minimumValue = 1;
 	self.lastStepper.maximumValue = self.ledCount;
+	self.lastStepper.value = self.lastStepper.maximumValue;
 	[self.lastStepper sendActionsForControlEvents:UIControlEventValueChanged];
 	
 	self.hSlider.value = 0.5f;
@@ -149,7 +153,7 @@
 
 	message.fillHeader();
 	
-	message.offset = self.firstStepper.value;
+	message.offset = self.firstStepper.value - 1;
 	message.count = self.lastStepper.value - self.firstStepper.value;
 	
 	message.color = HSBColor(h, s, b);
