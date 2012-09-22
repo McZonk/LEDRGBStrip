@@ -17,6 +17,8 @@
 		4C3A62C9160E0E7000D4156B /* MoreBright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62C5160E0E7000D4156B /* MoreBright@2x.png */; };
 		4C3A62CB160E189F00D4156B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62CA160E189F00D4156B /* Default-568h@2x.png */; };
 		4C3A62CE160E1FD500D4156B /* AddItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */; };
+		4C9062C2160E6A5400DF5463 /* UIColor+Names.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9062C1160E6A5400DF5463 /* UIColor+Names.m */; };
+		4C9062C5160E73AE00DF5463 /* ColorCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9062C4160E73AE00DF5463 /* ColorCollectionViewCell.m */; };
 		4CE04F02160606C40072D906 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CE04F04160606C40072D906 /* Localizable.strings */; };
 		50288CAD16025874005F6F3A /* HSBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CA916025874005F6F3A /* HSBColor.cpp */; };
 		50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CAB16025874005F6F3A /* RGBColor.cpp */; };
@@ -49,6 +51,10 @@
 		4C3A62CA160E189F00D4156B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4C3A62CC160E1FD500D4156B /* AddItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemCollectionViewCell.h; sourceTree = "<group>"; };
 		4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemCollectionViewCell.m; sourceTree = "<group>"; };
+		4C9062C0160E6A5400DF5463 /* UIColor+Names.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Names.h"; sourceTree = "<group>"; };
+		4C9062C1160E6A5400DF5463 /* UIColor+Names.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Names.m"; sourceTree = "<group>"; };
+		4C9062C3160E73AE00DF5463 /* ColorCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCollectionViewCell.h; sourceTree = "<group>"; };
+		4C9062C4160E73AE00DF5463 /* ColorCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCollectionViewCell.m; sourceTree = "<group>"; };
 		4CE04F03160606C40072D906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50288CA916025874005F6F3A /* HSBColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HSBColor.cpp; sourceTree = "<group>"; };
 		50288CAA16025874005F6F3A /* HSBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBColor.h; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 				50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */,
 				4C3A62CC160E1FD500D4156B /* AddItemCollectionViewCell.h */,
 				4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */,
+				4C9062C3160E73AE00DF5463 /* ColorCollectionViewCell.h */,
+				4C9062C4160E73AE00DF5463 /* ColorCollectionViewCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -133,6 +141,15 @@
 				50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		4C9062BE160E6A3900DF5463 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				4C9062C0160E6A5400DF5463 /* UIColor+Names.h */,
+				4C9062C1160E6A5400DF5463 /* UIColor+Names.m */,
+			);
+			name = Additional;
 			sourceTree = "<group>";
 		};
 		50288CB01602587E005F6F3A /* Shared */ = {
@@ -183,6 +200,7 @@
 		50AF0CCA15F8D39B00BB3C5F /* REDLEDClient */ = {
 			isa = PBXGroup;
 			children = (
+				4C9062BE160E6A3900DF5463 /* Additional */,
 				4C3A6298160E0B0700D4156B /* Networking */,
 				4C3A6295160E0AD600D4156B /* ViewController */,
 				50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */,
@@ -294,6 +312,8 @@
 				4C3028051605D853004AC24C /* UIPRangeSelector.m in Sources */,
 				4C3A629B160E0B6D00D4156B /* RGBSCOverviewViewController.mm in Sources */,
 				4C3A62CE160E1FD500D4156B /* AddItemCollectionViewCell.m in Sources */,
+				4C9062C2160E6A5400DF5463 /* UIColor+Names.m in Sources */,
+				4C9062C5160E73AE00DF5463 /* ColorCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

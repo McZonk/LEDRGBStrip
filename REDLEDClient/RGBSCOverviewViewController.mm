@@ -13,6 +13,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "AddItemCollectionViewCell.h"
+#import "ColorCollectionViewCell.h"
 
 
 typedef struct ColorAbstraction_ {
@@ -62,7 +63,7 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	[self.colorCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ColorCollectionCellIdentifier];
+	[self.colorCollectionView registerClass:[ColorCollectionViewCell class] forCellWithReuseIdentifier:ColorCollectionCellIdentifier];
 	[self.colorCollectionView registerClass:[AddItemCollectionViewCell class] forCellWithReuseIdentifier:ColorAddCollectionCellIdentifier];
 }
 
@@ -100,10 +101,14 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 		self.colors = [NSArray arrayWithArray:colors];
 	} else {
 		ColorAbstraction white = { 0.0f, 0.0f };
+		ColorAbstraction warmWhite = { 0.11f, 0.6f };
 		ColorAbstraction red = { 0.0f, 1.0f };
+		ColorAbstraction orange = { 0.083f, 1.0f };
 		ColorAbstraction green = { 0.3333f, 1.0f };
+		ColorAbstraction chartreuse = { 0.25f, 1.0f };
 		ColorAbstraction blue = { 0.6666f, 1.0f };
-		self.colors = @[ [NSValue valueWithBytes:&white objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&red objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&green objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&blue objCType:@encode(ColorAbstraction)] ];
+		ColorAbstraction lightBlue = { 0.6666f, 0.25f };
+		self.colors = @[ [NSValue valueWithBytes:&white objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&red objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&green objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&blue objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&warmWhite objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&orange objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&chartreuse objCType:@encode(ColorAbstraction)], [NSValue valueWithBytes:&lightBlue objCType:@encode(ColorAbstraction)] ];
 	}
 }
 
@@ -139,14 +144,11 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.item < self.colors.count) {
-		UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:ColorCollectionCellIdentifier forIndexPath:indexPath];
-		
-		cell.layer.borderColor = [[UIColor blackColor] CGColor];
-		cell.layer.borderWidth = 1.0f / collectionView.window.screen.scale;
+		ColorCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:ColorCollectionCellIdentifier forIndexPath:indexPath];
 		
 		ColorAbstraction cellColor;
 		[self.colors[indexPath.item] getValue:&cellColor];
-		cell.backgroundColor = [UIColor colorWithHue:cellColor.hue saturation:cellColor.satturation brightness:1.0f alpha:1.0f];
+		cell.color = [UIColor colorWithHue:cellColor.hue saturation:cellColor.satturation brightness:1.0f alpha:1.0f];
 		
 		return cell;
 		
