@@ -66,6 +66,89 @@
             </objects>
             <point key="canvasLocation" x="171" y="176"/>
         </scene>
+        <!--Overview View Controller-->
+        <scene sceneID="TKW-W8-h7S">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QDg-ZT-vhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="RGBSCOverviewViewController" id="eDL-f0-rGk" customClass="RGBSCOverviewViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YUG-iO-3En">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="LessBright.png" maximumValueImage="MoreBright.png" id="5UR-jk-p0E">
+                                <rect key="frame" x="18" y="20" width="284" height="23"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.58357093978102192" green="0.52825494170356158" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="maximumTrackTintColor" red="0.87752377986907959" green="0.88037854433059692" blue="0.068141773343086243" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeBrightness:" destination="eDL-f0-rGk" eventType="valueChanged" id="SXg-bP-57c"/>
+                                </connections>
+                            </slider>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="rbF-Gc-v9R">
+                                <rect key="frame" x="0.0" y="50" width="320" height="366"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u9o-bB-aT2">
+                                    <size key="itemSize" width="60" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Vb9-I1-cXS">
+                                        <rect key="frame" x="20" y="20" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ETm-21-jLn">
+                                        <rect key="frame" x="93.333335876464844" y="20" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fqt-no-amR">
+                                        <rect key="frame" x="166.66667175292969" y="20" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Cmj-cK-fRG">
+                                        <rect key="frame" x="240" y="20" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="eDL-f0-rGk" id="Pp4-RJ-yl5"/>
+                                    <outlet property="delegate" destination="eDL-f0-rGk" id="a9q-jb-bca"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="brightnessSlider" destination="5UR-jk-p0E" id="4fj-ep-PhN"/>
+                        <outlet property="colorCollectionView" destination="rbF-Gc-v9R" id="9ah-2m-Lla"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="580" y="176"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="EAu-u6-jVt">
             <objects>
@@ -135,9 +218,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyX-RY-Fap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="578" y="171"/>
+            <point key="canvasLocation" x="980" y="176"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LessBright.png" width="16" height="16"/>
+        <image name="MoreBright.png" width="24" height="24"/>
+    </resources>
     <classes>
         <class className="RGBSCBonjourBrowserViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCBonjourBrowserViewController.h"/>
@@ -147,6 +234,14 @@
             <relationships>
                 <relationship kind="outlet" name="infoView" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameView" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RGBSCOverviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCOverviewViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeBrightness:"/>
+                <relationship kind="outlet" name="brightnessSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="colorCollectionView" candidateClass="UICollectionView"/>
             </relationships>
         </class>
         <class className="RGBSCViewController" superclassName="UIViewController">
@@ -161,6 +256,15 @@
                 <relationship kind="outlet" name="rangeSlider" candidateClass="UIPRangeSelector"/>
                 <relationship kind="outlet" name="sSlider" candidateClass="UIPColorSlider"/>
             </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
         <class className="UIPColorSlider" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPColorSlider.h"/>

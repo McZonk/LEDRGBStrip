@@ -10,6 +10,13 @@
 		4C3028051605D853004AC24C /* UIPRangeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3028041605D853004AC24C /* UIPRangeSelector.m */; };
 		4C3028091605EB4B004AC24C /* Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3028071605EB4B004AC24C /* Highlight.png */; };
 		4C30280A1605EB4B004AC24C /* Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3028081605EB4B004AC24C /* Highlight@2x.png */; };
+		4C3A629B160E0B6D00D4156B /* RGBSCOverviewViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A629A160E0B6D00D4156B /* RGBSCOverviewViewController.mm */; };
+		4C3A62C6160E0E7000D4156B /* LessBright.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62C2160E0E7000D4156B /* LessBright.png */; };
+		4C3A62C7160E0E7000D4156B /* LessBright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62C3160E0E7000D4156B /* LessBright@2x.png */; };
+		4C3A62C8160E0E7000D4156B /* MoreBright.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62C4160E0E7000D4156B /* MoreBright.png */; };
+		4C3A62C9160E0E7000D4156B /* MoreBright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62C5160E0E7000D4156B /* MoreBright@2x.png */; };
+		4C3A62CB160E189F00D4156B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62CA160E189F00D4156B /* Default-568h@2x.png */; };
+		4C3A62CE160E1FD500D4156B /* AddItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */; };
 		4CE04F02160606C40072D906 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CE04F04160606C40072D906 /* Localizable.strings */; };
 		50288CAD16025874005F6F3A /* HSBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CA916025874005F6F3A /* HSBColor.cpp */; };
 		50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CAB16025874005F6F3A /* RGBColor.cpp */; };
@@ -33,6 +40,15 @@
 		4C3028041605D853004AC24C /* UIPRangeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPRangeSelector.m; sourceTree = "<group>"; };
 		4C3028071605EB4B004AC24C /* Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highlight.png; sourceTree = "<group>"; };
 		4C3028081605EB4B004AC24C /* Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Highlight@2x.png"; sourceTree = "<group>"; };
+		4C3A6299160E0B6D00D4156B /* RGBSCOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCOverviewViewController.h; sourceTree = "<group>"; };
+		4C3A629A160E0B6D00D4156B /* RGBSCOverviewViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RGBSCOverviewViewController.mm; sourceTree = "<group>"; };
+		4C3A62C2160E0E7000D4156B /* LessBright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LessBright.png; sourceTree = "<group>"; };
+		4C3A62C3160E0E7000D4156B /* LessBright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LessBright@2x.png"; sourceTree = "<group>"; };
+		4C3A62C4160E0E7000D4156B /* MoreBright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoreBright.png; sourceTree = "<group>"; };
+		4C3A62C5160E0E7000D4156B /* MoreBright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoreBright@2x.png"; sourceTree = "<group>"; };
+		4C3A62CA160E189F00D4156B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4C3A62CC160E1FD500D4156B /* AddItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemCollectionViewCell.h; sourceTree = "<group>"; };
+		4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemCollectionViewCell.m; sourceTree = "<group>"; };
 		4CE04F03160606C40072D906 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50288CA916025874005F6F3A /* HSBColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HSBColor.cpp; sourceTree = "<group>"; };
 		50288CAA16025874005F6F3A /* HSBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBColor.h; sourceTree = "<group>"; };
@@ -81,6 +97,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C3A6295160E0AD600D4156B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C3A6297160E0AF900D4156B /* UI */,
+				50A27AD715FB900600B0D39B /* RGBSCBonjourBrowserViewController.h */,
+				50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */,
+				4C3A6299160E0B6D00D4156B /* RGBSCOverviewViewController.h */,
+				4C3A629A160E0B6D00D4156B /* RGBSCOverviewViewController.mm */,
+				50A27ADE15FB9B2800B0D39B /* RGBSCViewController.h */,
+				50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		4C3A6297160E0AF900D4156B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				50CB647115FE4CBD001C5999 /* UIPColorSlider.h */,
+				50CB647215FE4CBD001C5999 /* UIPColorSlider.m */,
+				4C3028031605D853004AC24C /* UIPRangeSelector.h */,
+				4C3028041605D853004AC24C /* UIPRangeSelector.m */,
+				50A27ADB15FB93EA00B0D39B /* RGBSCBonjourServiceCell.h */,
+				50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */,
+				4C3A62CC160E1FD500D4156B /* AddItemCollectionViewCell.h */,
+				4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		4C3A6298160E0B0700D4156B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				50AD9AD015F8DFA1005D031A /* MCUDPSocket.h */,
+				50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		50288CB01602587E005F6F3A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +153,7 @@
 		50AF0CB515F8D39B00BB3C5F = {
 			isa = PBXGroup;
 			children = (
+				4C3A62CA160E189F00D4156B /* Default-568h@2x.png */,
 				50288CB01602587E005F6F3A /* Shared */,
 				50AF0CCA15F8D39B00BB3C5F /* REDLEDClient */,
 				50AF0CC315F8D39B00BB3C5F /* Frameworks */,
@@ -128,24 +183,18 @@
 		50AF0CCA15F8D39B00BB3C5F /* REDLEDClient */ = {
 			isa = PBXGroup;
 			children = (
+				4C3A6298160E0B0700D4156B /* Networking */,
+				4C3A6295160E0AD600D4156B /* ViewController */,
 				50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */,
 				50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */,
 				50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */,
-				50A27AD715FB900600B0D39B /* RGBSCBonjourBrowserViewController.h */,
-				50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */,
-				50A27ADB15FB93EA00B0D39B /* RGBSCBonjourServiceCell.h */,
-				50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */,
-				50A27ADE15FB9B2800B0D39B /* RGBSCViewController.h */,
-				50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */,
-				50AD9AD015F8DFA1005D031A /* MCUDPSocket.h */,
-				50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */,
-				50CB647115FE4CBD001C5999 /* UIPColorSlider.h */,
-				50CB647215FE4CBD001C5999 /* UIPColorSlider.m */,
-				4C3028031605D853004AC24C /* UIPRangeSelector.h */,
-				4C3028041605D853004AC24C /* UIPRangeSelector.m */,
 				50CB647615FE5051001C5999 /* Circle.png */,
 				4C3028071605EB4B004AC24C /* Highlight.png */,
 				4C3028081605EB4B004AC24C /* Highlight@2x.png */,
+				4C3A62C2160E0E7000D4156B /* LessBright.png */,
+				4C3A62C3160E0E7000D4156B /* LessBright@2x.png */,
+				4C3A62C4160E0E7000D4156B /* MoreBright.png */,
+				4C3A62C5160E0E7000D4156B /* MoreBright@2x.png */,
 				50AF0CCB15F8D39B00BB3C5F /* Supporting Files */,
 			);
 			path = REDLEDClient;
@@ -218,6 +267,11 @@
 				4C3028091605EB4B004AC24C /* Highlight.png in Resources */,
 				4C30280A1605EB4B004AC24C /* Highlight@2x.png in Resources */,
 				4CE04F02160606C40072D906 /* Localizable.strings in Resources */,
+				4C3A62C6160E0E7000D4156B /* LessBright.png in Resources */,
+				4C3A62C7160E0E7000D4156B /* LessBright@2x.png in Resources */,
+				4C3A62C8160E0E7000D4156B /* MoreBright.png in Resources */,
+				4C3A62C9160E0E7000D4156B /* MoreBright@2x.png in Resources */,
+				4C3A62CB160E189F00D4156B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +292,8 @@
 				50288CAD16025874005F6F3A /* HSBColor.cpp in Sources */,
 				50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */,
 				4C3028051605D853004AC24C /* UIPRangeSelector.m in Sources */,
+				4C3A629B160E0B6D00D4156B /* RGBSCOverviewViewController.mm in Sources */,
+				4C3A62CE160E1FD500D4156B /* AddItemCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

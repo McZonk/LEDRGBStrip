@@ -10,7 +10,7 @@
 
 #import "RGBSCBonjourServiceCell.h"
 
-#import "RGBSCViewController.h"
+#import "RGBSCOverviewViewController.h"
 
 
 @interface RGBSCBonjourBrowserViewController () <NSNetServiceBrowserDelegate, NSNetServiceDelegate>
@@ -89,7 +89,7 @@
 {
 	NSNetService* bonjourService = [self.resolvedBonjourServices objectAtIndex:indexPath.row];
 	
-	RGBSCViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RGBSCViewController"];
+	RGBSCOverviewViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RGBSCOverviewViewController"];
 	NSLog(@"%@", viewController);
 
 	[viewController bindToNetService:bonjourService];
