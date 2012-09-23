@@ -15,6 +15,8 @@
 #import "AddItemCollectionViewCell.h"
 #import "ColorCollectionViewCell.h"
 
+#import "RGBSCColorChooserViewController.h"
+
 
 typedef struct ColorAbstraction_ {
 	float hue;
@@ -22,14 +24,9 @@ typedef struct ColorAbstraction_ {
 } ColorAbstraction;
 
 
-@interface RGBSCOverviewViewController () <NSNetServiceDelegate>
+@interface RGBSCOverviewViewController () <NSNetServiceDelegate, RGBSCColorChooserViewControllerDelegate>
 
-@property (nonatomic, strong, readwrite) NSNetService* service;
 @property (nonatomic, strong, readwrite) NSArray* colors;
-
-@property (nonatomic, assign, readwrite) NSUInteger ledCount;
-
-@property (nonatomic, strong, readwrite) MCUDPSocket* socket;
 
 @end
 
@@ -65,6 +62,12 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 	
 	[self.colorCollectionView registerClass:[ColorCollectionViewCell class] forCellWithReuseIdentifier:ColorCollectionCellIdentifier];
 	[self.colorCollectionView registerClass:[AddItemCollectionViewCell class] forCellWithReuseIdentifier:ColorAddCollectionCellIdentifier];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[self updateColorOnDevice];
 }
 
 
@@ -161,10 +164,54 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.item < self.colors.count) {
-		[self updateColorOnDevice];
+	if (self.editing) {
+		[self performSegueWithIdentifier:@"ColorPicker" sender:indexPath];
 	} else {
-		NSLog(@"ADD COLOR!");
+		if (indexPath.item < self.colors.count) {
+			[self updateColorOnDevice];
+		} else {
+			[NSException raise:NSInternalInconsistencyException format:@"This shouldn't happen!"];
+		}
+	}
+}
+
+
+
+#pragma mark - Colorpicker management
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:@"ColorPicker"]) {
+		NSIndexPath* indexPath = sender;
+		
+		RGBSCColorChooserViewController* colorChooser = (RGBSCColorChooserViewController*)[(UINavigationController*)segue.destinationViewController topViewController];
+		if (![colorChooser isKindOfClass:[RGBSCColorChooserViewController class]]) {
+			[NSException raise:NSInternalInconsistencyException format:@"Content view controller in 'ColorPicker' segue musst be a RGBSCColorChooserViewController!"];
+		}
+		[colorChooser bindToNetService:self.service];
+		if (indexPath.item < self.colors.count) {
+			ColorAbstraction abstractColor;
+			[self.colors[indexPath.item] getValue:&abstractColor];
+			
+			UIColor* color = [UIColor colorWithHue:abstractColor.hue saturation:abstractColor.satturation brightness:1.0f alpha:1.0f];
+			[colorChooser setColor:color];
+		}
+		[colorChooser setColorPickedHandler:^(UIColor* color) {
+			ColorAbstraction colorAbstraction;
+			[color getHue:&colorAbstraction.hue saturation:&colorAbstraction.satturation brightness:NULL alpha:NULL];
+			NSValue* colorValue = [NSValue valueWithBytes:&colorAbstraction objCType:@encode(ColorAbstraction)];
+			
+			if (indexPath.item >= self.colors.count) {
+				self.colors = [self.colors arrayByAddingObject:colorValue];
+				[self.colorCollectionView insertItemsAtIndexPaths:@[indexPath]];
+			} else {
+				NSMutableArray* array = [self.colors mutableCopy];
+				[array replaceObjectAtIndex:indexPath.item withObject:colorValue];
+				self.colors = [NSArray arrayWithArray:array];
+				[self.colorCollectionView reloadItemsAtIndexPaths:@[indexPath]];
+			}
+			[self.colorCollectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionCenteredVertically];
+			[self saveColors];
+		}];
 	}
 }
 
@@ -173,47 +220,19 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 #pragma mark - Networking
 
 - (void)updateColorOnDevice {
-	ColorAbstraction abstractColor;
-	[self.colors[[(NSIndexPath*)[self.colorCollectionView.indexPathsForSelectedItems lastObject] item]] getValue:&abstractColor];
+	NSIndexPath* indexPath = [self.colorCollectionView.indexPathsForSelectedItems lastObject];
 	
-	UIColor* color = [UIColor colorWithHue:abstractColor.hue saturation:abstractColor.satturation brightness:self.brightnessSlider.value alpha:1.0f];
-	[self sendColorToDevice:color range:NSMakeRange(0, self.ledCount)];
-}
-
-- (void)sendColorToDevice:(UIColor*)color range:(NSRange)range {
-	float hue;
-	float saturation;
-	float brightness;
-	[color getHue:&hue saturation:&saturation brightness:&brightness alpha:NULL];
+	UIColor* color = nil;
 	
-	NSMutableData* data = [NSMutableData dataWithLength:RGBStrip::ColorMessage::size()];
-	
-	RGBStrip::ColorMessage& message = *(RGBStrip::ColorMessage*)data.mutableBytes;
-	message.fillHeader();
-	message.offset = range.location;
-	message.count = range.length;
-	message.color = HSBColor(hue, saturation, brightness);
-	
-	NSLog(@"%@ success:%d", data, [self.socket sendData:data]);
-}
-
-- (void)bindToNetService:(NSNetService*)service {
-	self.service.delegate = nil;
-	
-	self.service = service;
-	self.service.delegate = self;
-	
-	NSData* address = [self.service.addresses objectAtIndex:0];
-	self.socket = [[MCUDPSocket alloc] initWithAddress:address];
-	
-	NSDictionary* txtRecord = [NSNetService dictionaryFromTXTRecordData:self.service.TXTRecordData];
-	{
-		NSData* ledsData = [txtRecord objectForKey:@"leds"];
-		NSString* ledsString = [[NSString alloc] initWithData:ledsData encoding:NSASCIIStringEncoding];
-		self.ledCount = ledsString.integerValue;
+	if (indexPath.item >= self.colors.count) {
+		color = [UIColor colorWithHue:0.0f saturation:0.0f brightness:self.brightnessSlider.value alpha:1.0f];
+	} else {
+		ColorAbstraction abstractColor;
+		[self.colors[[(NSIndexPath*)[self.colorCollectionView.indexPathsForSelectedItems lastObject] item]] getValue:&abstractColor];
+		
+		color = [UIColor colorWithHue:abstractColor.hue saturation:abstractColor.satturation brightness:self.brightnessSlider.value alpha:1.0f];
 	}
-	
-	self.title = [NSString stringWithFormat:@"%@ (%d)", self.service.name, self.ledCount];
+	[self sendColorToDevice:color range:NSMakeRange(0, self.ledCount)];
 }
 
 

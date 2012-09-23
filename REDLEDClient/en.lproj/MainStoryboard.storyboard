@@ -69,7 +69,6 @@
         <!--Overview View Controller-->
         <scene sceneID="TKW-W8-h7S">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QDg-ZT-vhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="RGBSCOverviewViewController" id="eDL-f0-rGk" customClass="RGBSCOverviewViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YUG-iO-3En">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -94,44 +93,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Vb9-I1-cXS">
-                                        <rect key="frame" x="20" y="20" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ETm-21-jLn">
-                                        <rect key="frame" x="93.333335876464844" y="20" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fqt-no-amR">
-                                        <rect key="frame" x="166.66667175292969" y="20" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Cmj-cK-fRG">
-                                        <rect key="frame" x="240" y="20" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="eDL-f0-rGk" id="Pp4-RJ-yl5"/>
                                     <outlet property="delegate" destination="eDL-f0-rGk" id="a9q-jb-bca"/>
@@ -144,81 +106,53 @@
                     <connections>
                         <outlet property="brightnessSlider" destination="5UR-jk-p0E" id="4fj-ep-PhN"/>
                         <outlet property="colorCollectionView" destination="rbF-Gc-v9R" id="9ah-2m-Lla"/>
+                        <segue destination="1UU-Nx-BqE" kind="modal" identifier="ColorPicker" id="xmz-Pd-PwT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QDg-ZT-vhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="580" y="176"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="EAu-u6-jVt">
+        <!--Navigation Controller-->
+        <scene sceneID="9gL-7v-WHb">
             <objects>
-                <viewController storyboardIdentifier="RGBSCViewController" id="CLc-bh-AAt" customClass="RGBSCViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SPt-YY-E9r">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                <navigationController definesPresentationContext="YES" id="1UU-Nx-BqE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="AOb-Lf-hvw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="biz-1u-E2L" kind="relationship" relationship="rootViewController" id="V9N-WD-gvx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6B-Ev-r0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="580" y="812"/>
+        </scene>
+        <!--Color Chooser View Controller-->
+        <scene sceneID="4na-df-HCe">
+            <objects>
+                <viewController id="biz-1u-E2L" customClass="RGBSCColorChooserViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pYT-Pn-csA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="dbx-bB-aAG" customClass="UIPColorSlider">
-                                <rect key="frame" x="20" y="20" width="280" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="60I-ij-BOn"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" id="TJx-Rt-SSn" customClass="UIPColorSlider">
-                                <rect key="frame" x="20" y="88" width="280" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="IkA-B3-oWz"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" id="69l-iC-RKK" customClass="UIPColorSlider">
-                                <rect key="frame" x="20" y="156" width="280" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="Cum-TS-vXB"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yj0-H5-8V9">
-                                <rect key="frame" x="20" y="230" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sgQ-rS-ZOF">
-                                <rect key="frame" x="206" y="230" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" id="Lis-ua-W8n" customClass="UIPRangeSelector">
-                                <rect key="frame" x="20" y="259" width="280" height="60"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="ledRangeChanged:" destination="CLc-bh-AAt" eventType="valueChanged" id="KWB-Hr-q1W"/>
-                                </connections>
+                            <view contentMode="scaleToFill" id="W3C-Fd-TfM" customClass="UIPHSColorSelectorView">
+                                <rect key="frame" x="20" y="20" width="280" height="376"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fyc-N7-jI3"/>
+                    <navigationItem key="navigationItem" id="JVn-Ih-Q0W"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
-                        <outlet property="bSlider" destination="69l-iC-RKK" id="ZN3-GP-GIB"/>
-                        <outlet property="firstTextView" destination="yj0-H5-8V9" id="gE0-sG-bUL"/>
-                        <outlet property="hSlider" destination="dbx-bB-aAG" id="uZv-E7-LjQ"/>
-                        <outlet property="lastTextView" destination="sgQ-rS-ZOF" id="Vnq-lS-tkW"/>
-                        <outlet property="rangeSlider" destination="Lis-ua-W8n" id="1sH-sN-WSw"/>
-                        <outlet property="sSlider" destination="TJx-Rt-SSn" id="0eN-Vt-kbK"/>
+                        <outlet property="colorSelector" destination="W3C-Fd-TfM" id="lxm-b9-C5y"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hyX-RY-Fap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qKT-my-aWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="176"/>
+            <point key="canvasLocation" x="1040" y="812"/>
         </scene>
     </scenes>
     <resources>
@@ -236,7 +170,16 @@
                 <relationship kind="outlet" name="nameView" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="RGBSCOverviewViewController" superclassName="UIViewController">
+        <class className="RGBSCColorChooserViewController" superclassName="RGBSCDeviceConnectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCColorChooserViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="colorSelector" candidateClass="UIPHSColorSelectorView"/>
+            </relationships>
+        </class>
+        <class className="RGBSCDeviceConnectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCDeviceConnectionViewController.h"/>
+        </class>
+        <class className="RGBSCOverviewViewController" superclassName="RGBSCDeviceConnectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCOverviewViewController.h"/>
             <relationships>
                 <relationship kind="action" name="changeBrightness:"/>
@@ -244,33 +187,14 @@
                 <relationship kind="outlet" name="colorCollectionView" candidateClass="UICollectionView"/>
             </relationships>
         </class>
-        <class className="RGBSCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RGBSCViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="ledRangeChanged:"/>
-                <relationship kind="action" name="sliderChanged:"/>
-                <relationship kind="outlet" name="bSlider" candidateClass="UIPColorSlider"/>
-                <relationship kind="outlet" name="firstTextView" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hSlider" candidateClass="UIPColorSlider"/>
-                <relationship kind="outlet" name="lastTextView" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rangeSlider" candidateClass="UIPRangeSelector"/>
-                <relationship kind="outlet" name="sSlider" candidateClass="UIPColorSlider"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UIPColorSlider" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPColorSlider.h"/>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
-        <class className="UIPRangeSelector" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPRangeSelector.h"/>
+        <class className="UIPHSColorSelectorView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPHSColorSelectorView.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

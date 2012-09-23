@@ -17,6 +17,9 @@
 		4C3A62C9160E0E7000D4156B /* MoreBright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62C5160E0E7000D4156B /* MoreBright@2x.png */; };
 		4C3A62CB160E189F00D4156B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A62CA160E189F00D4156B /* Default-568h@2x.png */; };
 		4C3A62CE160E1FD500D4156B /* AddItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */; };
+		4C751FAB160F04290025FE06 /* UIPHSColorSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C751FAA160F04290025FE06 /* UIPHSColorSelectorView.m */; };
+		4C751FAE160F04500025FE06 /* RGBSCColorChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C751FAD160F04500025FE06 /* RGBSCColorChooserViewController.m */; };
+		4C751FB1160F05840025FE06 /* RGBSCDeviceConnectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C751FB0160F05840025FE06 /* RGBSCDeviceConnectionViewController.mm */; };
 		4C9062C2160E6A5400DF5463 /* UIColor+Names.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9062C1160E6A5400DF5463 /* UIColor+Names.m */; };
 		4C9062C5160E73AE00DF5463 /* ColorCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9062C4160E73AE00DF5463 /* ColorCollectionViewCell.m */; };
 		4CE04F02160606C40072D906 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CE04F04160606C40072D906 /* Localizable.strings */; };
@@ -24,7 +27,6 @@
 		50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50288CAB16025874005F6F3A /* RGBColor.cpp */; };
 		50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */; };
 		50A27ADD15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */; };
-		50A27AE015FB9B2800B0D39B /* RGBSCViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */; };
 		50AD9AD215F8DFA1005D031A /* MCUDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */; };
 		50AF0CC515F8D39B00BB3C5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC415F8D39B00BB3C5F /* UIKit.framework */; };
 		50AF0CC715F8D39B00BB3C5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AF0CC615F8D39B00BB3C5F /* Foundation.framework */; };
@@ -32,9 +34,7 @@
 		50AF0CD115F8D39B00BB3C5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD015F8D39B00BB3C5F /* main.m */; };
 		50AF0CD515F8D39B00BB3C5F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */; };
 		50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */; };
-		50CB647315FE4CBD001C5999 /* UIPColorSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CB647215FE4CBD001C5999 /* UIPColorSlider.m */; };
 		50CB647515FE4DEC001C5999 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CB647415FE4DEC001C5999 /* QuartzCore.framework */; };
-		50CB647715FE5051001C5999 /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 50CB647615FE5051001C5999 /* Circle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +51,12 @@
 		4C3A62CA160E189F00D4156B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4C3A62CC160E1FD500D4156B /* AddItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemCollectionViewCell.h; sourceTree = "<group>"; };
 		4C3A62CD160E1FD500D4156B /* AddItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemCollectionViewCell.m; sourceTree = "<group>"; };
+		4C751FA9160F04290025FE06 /* UIPHSColorSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPHSColorSelectorView.h; sourceTree = "<group>"; };
+		4C751FAA160F04290025FE06 /* UIPHSColorSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPHSColorSelectorView.m; sourceTree = "<group>"; };
+		4C751FAC160F04500025FE06 /* RGBSCColorChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCColorChooserViewController.h; sourceTree = "<group>"; };
+		4C751FAD160F04500025FE06 /* RGBSCColorChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBSCColorChooserViewController.m; sourceTree = "<group>"; };
+		4C751FAF160F05840025FE06 /* RGBSCDeviceConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCDeviceConnectionViewController.h; sourceTree = "<group>"; };
+		4C751FB0160F05840025FE06 /* RGBSCDeviceConnectionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RGBSCDeviceConnectionViewController.mm; sourceTree = "<group>"; };
 		4C9062C0160E6A5400DF5463 /* UIColor+Names.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Names.h"; sourceTree = "<group>"; };
 		4C9062C1160E6A5400DF5463 /* UIColor+Names.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Names.m"; sourceTree = "<group>"; };
 		4C9062C3160E73AE00DF5463 /* ColorCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCollectionViewCell.h; sourceTree = "<group>"; };
@@ -64,8 +70,6 @@
 		50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBSCBonjourBrowserViewController.m; sourceTree = "<group>"; };
 		50A27ADB15FB93EA00B0D39B /* RGBSCBonjourServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCBonjourServiceCell.h; sourceTree = "<group>"; };
 		50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBSCBonjourServiceCell.m; sourceTree = "<group>"; };
-		50A27ADE15FB9B2800B0D39B /* RGBSCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBSCViewController.h; sourceTree = "<group>"; };
-		50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RGBSCViewController.mm; sourceTree = "<group>"; };
 		50AD9AD015F8DFA1005D031A /* MCUDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUDPSocket.h; sourceTree = "<group>"; };
 		50AD9AD115F8DFA1005D031A /* MCUDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUDPSocket.m; sourceTree = "<group>"; };
 		50AF0CC015F8D39B00BB3C5F /* REDLEDClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REDLEDClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,10 +82,7 @@
 		50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		50AF0CD715F8D39B00BB3C5F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		50CB647115FE4CBD001C5999 /* UIPColorSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPColorSlider.h; sourceTree = "<group>"; };
-		50CB647215FE4CBD001C5999 /* UIPColorSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPColorSlider.m; sourceTree = "<group>"; };
 		50CB647415FE4DEC001C5999 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		50CB647615FE5051001C5999 /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
 		50D6C3C5160524A6005E7263 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		50D6C3C916052803005E7263 /* ColorMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMessage.h; sourceTree = "<group>"; };
 		50D6C3CA16052925005E7263 /* ColorArrayMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorArrayMessage.h; sourceTree = "<group>"; };
@@ -111,8 +112,10 @@
 				50A27AD815FB900600B0D39B /* RGBSCBonjourBrowserViewController.m */,
 				4C3A6299160E0B6D00D4156B /* RGBSCOverviewViewController.h */,
 				4C3A629A160E0B6D00D4156B /* RGBSCOverviewViewController.mm */,
-				50A27ADE15FB9B2800B0D39B /* RGBSCViewController.h */,
-				50A27ADF15FB9B2800B0D39B /* RGBSCViewController.mm */,
+				4C751FAC160F04500025FE06 /* RGBSCColorChooserViewController.h */,
+				4C751FAD160F04500025FE06 /* RGBSCColorChooserViewController.m */,
+				4C751FAF160F05840025FE06 /* RGBSCDeviceConnectionViewController.h */,
+				4C751FB0160F05840025FE06 /* RGBSCDeviceConnectionViewController.mm */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -120,10 +123,10 @@
 		4C3A6297160E0AF900D4156B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				50CB647115FE4CBD001C5999 /* UIPColorSlider.h */,
-				50CB647215FE4CBD001C5999 /* UIPColorSlider.m */,
 				4C3028031605D853004AC24C /* UIPRangeSelector.h */,
 				4C3028041605D853004AC24C /* UIPRangeSelector.m */,
+				4C751FA9160F04290025FE06 /* UIPHSColorSelectorView.h */,
+				4C751FAA160F04290025FE06 /* UIPHSColorSelectorView.m */,
 				50A27ADB15FB93EA00B0D39B /* RGBSCBonjourServiceCell.h */,
 				50A27ADC15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m */,
 				4C3A62CC160E1FD500D4156B /* AddItemCollectionViewCell.h */,
@@ -206,7 +209,6 @@
 				50AF0CD315F8D39B00BB3C5F /* AppDelegate.h */,
 				50AF0CD415F8D39B00BB3C5F /* AppDelegate.mm */,
 				50AF0CD615F8D39B00BB3C5F /* MainStoryboard.storyboard */,
-				50CB647615FE5051001C5999 /* Circle.png */,
 				4C3028071605EB4B004AC24C /* Highlight.png */,
 				4C3028081605EB4B004AC24C /* Highlight@2x.png */,
 				4C3A62C2160E0E7000D4156B /* LessBright.png */,
@@ -281,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AF0CD815F8D39B00BB3C5F /* MainStoryboard.storyboard in Resources */,
-				50CB647715FE5051001C5999 /* Circle.png in Resources */,
 				4C3028091605EB4B004AC24C /* Highlight.png in Resources */,
 				4C30280A1605EB4B004AC24C /* Highlight@2x.png in Resources */,
 				4CE04F02160606C40072D906 /* Localizable.strings in Resources */,
@@ -305,8 +306,6 @@
 				50AD9AD215F8DFA1005D031A /* MCUDPSocket.m in Sources */,
 				50A27AD915FB900600B0D39B /* RGBSCBonjourBrowserViewController.m in Sources */,
 				50A27ADD15FB93EA00B0D39B /* RGBSCBonjourServiceCell.m in Sources */,
-				50A27AE015FB9B2800B0D39B /* RGBSCViewController.mm in Sources */,
-				50CB647315FE4CBD001C5999 /* UIPColorSlider.m in Sources */,
 				50288CAD16025874005F6F3A /* HSBColor.cpp in Sources */,
 				50288CAE16025874005F6F3A /* RGBColor.cpp in Sources */,
 				4C3028051605D853004AC24C /* UIPRangeSelector.m in Sources */,
@@ -314,6 +313,9 @@
 				4C3A62CE160E1FD500D4156B /* AddItemCollectionViewCell.m in Sources */,
 				4C9062C2160E6A5400DF5463 /* UIColor+Names.m in Sources */,
 				4C9062C5160E73AE00DF5463 /* ColorCollectionViewCell.m in Sources */,
+				4C751FAB160F04290025FE06 /* UIPHSColorSelectorView.m in Sources */,
+				4C751FAE160F04500025FE06 /* RGBSCColorChooserViewController.m in Sources */,
+				4C751FB1160F05840025FE06 /* RGBSCDeviceConnectionViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
