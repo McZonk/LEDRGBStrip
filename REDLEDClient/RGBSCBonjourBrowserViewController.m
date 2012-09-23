@@ -25,11 +25,9 @@
 
 @implementation RGBSCBonjourBrowserViewController
 
-- (id)initWithCoder:(NSCoder*)coder
-{
+- (id)initWithCoder:(NSCoder*)coder {
 	self = [super initWithCoder:coder];
-	if(self != nil)
-	{
+	if(self != nil) {
 		self.unresolvedBonjourServices = [NSMutableArray arrayWithCapacity:1];
 		self.resolvedBonjourServices = [NSMutableArray arrayWithCapacity:1];
 		
@@ -38,44 +36,43 @@
 		
 		//[self.bonjourBrowser scheduleInRunLoop:NSRunLoop.currentRunLoop forMode:NSRunLoopCommonModes];
 		
-		[self.bonjourBrowser searchForServicesOfType:@"_rgbled._udp" inDomain:nil];
-		
 		self.title = NSLocalizedString(@"<BonjourBrowserTitle>", nil);
 	}
 	return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
 	//[self.bonjourBrowser removeFromRunLoop:NSRunLoop.currentRunLoop forMode:NSRunLoopCommonModes];
 	self.bonjourBrowser.delegate = nil;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	[self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[self.bonjourBrowser searchForServicesOfType:@"_rgbled._udp." inDomain:nil];
 }
+
+
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
 	return self.resolvedBonjourServices.count;
 }
 
-- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
-{
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
 	RGBSCBonjourServiceCell* cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RGBSCBonjourServiceCell class])];
 	
 	cell.bonjourService = [self.resolvedBonjourServices objectAtIndex:indexPath.row];
@@ -83,15 +80,22 @@
 	return cell;
 }
 
+
+
+#pragma mark - Refreshing
+
+- (void)refresh:(id)sender {
+	[self.bonjourBrowser searchForServicesOfType:@"_rgbled._udp." inDomain:nil];
+}
+
+
+
 #pragma mark - UIViewViewDelegate
 
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
 	NSNetService* bonjourService = [self.resolvedBonjourServices objectAtIndex:indexPath.row];
 	
 	RGBSCOverviewViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RGBSCOverviewViewController"];
-	NSLog(@"%@", viewController);
-
 	[viewController bindToNetService:bonjourService];
 	
 	[self.navigationController pushViewController:viewController animated:YES];
@@ -99,51 +103,51 @@
 
 #pragma mark - NSNetServiceBrowserDelegate
 
-- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser*)netServiceBrowser
-{
+- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser*)netServiceBrowser {
+	[self.refreshControl beginRefreshing];
 }
 
-- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser*)netServiceBrowser
-{
+- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser*)netServiceBrowser {
+	[self.refreshControl endRefreshing];
 }
 
-- (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser didNotSearch:(NSDictionary*)errorDict
-{
+- (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser didNotSearch:(NSDictionary*)errorDict {
 	NSLog(@"%s Error: %@", __PRETTY_FUNCTION__, errorDict);
+	
+	[self.refreshControl endRefreshing];
 }
 
-- (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser didFindService:(NSNetService*)netService moreComing:(BOOL)moreComing
-{
+- (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser didFindService:(NSNetService*)netService moreComing:(BOOL)moreComing {
 	NSLog(@"%s %@", __PRETTY_FUNCTION__, netService);
 
 	netService.delegate = self;
 	[netService resolveWithTimeout:15.0];
 	
 	[self.unresolvedBonjourServices addObject:netService];
+	
+	if (!moreComing) {
+		[self.refreshControl endRefreshing];
+	}
 }
 
-- (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser didRemoveService:(NSNetService*)netService moreComing:(BOOL)moreComing
-{
+- (void)netServiceBrowser:(NSNetServiceBrowser*)netServiceBrowser didRemoveService:(NSNetService*)netService moreComing:(BOOL)moreComing {
 	NSLog(@"%s %@", __PRETTY_FUNCTION__, netService);
 
-	if(netService.delegate == self)
-	{
+	if(netService.delegate == self)	{
 		netService.delegate = nil;
 	}
 	
 	[self.unresolvedBonjourServices removeObject:netService];
 	[self.resolvedBonjourServices removeObject:netService];
 	
-	if(!moreComing)
-	{
+	if(!moreComing) {
 		[self.tableView reloadData];
 	}
 }
 
 #pragma mark - NSNetServiceDelegate
 
-- (void)netServiceDidResolveAddress:(NSNetService*)netService
-{
+- (void)netServiceDidResolveAddress:(NSNetService*)netService {
 	NSLog(@"%s %@", __PRETTY_FUNCTION__, netService);
 	
 	[self.unresolvedBonjourServices removeObject:netService];

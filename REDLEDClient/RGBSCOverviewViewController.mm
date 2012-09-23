@@ -24,7 +24,7 @@ typedef struct ColorAbstraction_ {
 } ColorAbstraction;
 
 
-@interface RGBSCOverviewViewController () <NSNetServiceDelegate, RGBSCColorChooserViewControllerDelegate>
+@interface RGBSCOverviewViewController () <NSNetServiceDelegate, RGBSCColorChooserViewControllerDelegate, ColorCollectionViewCellDelegate>
 
 @property (nonatomic, strong, readwrite) NSArray* colors;
 
@@ -60,6 +60,10 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Brightness"]) {
+		self.brightnessSlider.value = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Brightness"] floatValue];
+	}
+	
 	[self.colorCollectionView registerClass:[ColorCollectionViewCell class] forCellWithReuseIdentifier:ColorCollectionCellIdentifier];
 	[self.colorCollectionView registerClass:[AddItemCollectionViewCell class] forCellWithReuseIdentifier:ColorAddCollectionCellIdentifier];
 }
@@ -81,6 +85,12 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 		[self.colorCollectionView insertItemsAtIndexPaths:@[ [NSIndexPath indexPathForItem:self.colors.count inSection:0] ]];
 	} else {
 		[self.colorCollectionView deleteItemsAtIndexPaths:@[ [NSIndexPath indexPathForItem:self.colors.count inSection:0] ]];
+	}
+	
+	for (UICollectionViewCell* cell in [self.colorCollectionView visibleCells]) {
+		if ([cell isKindOfClass:[ColorCollectionViewCell class]]) {
+			[(ColorCollectionViewCell*)cell setEditing:editing animated:animated];
+		}
 	}
 }
 
@@ -130,6 +140,7 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 #pragma mark - Brightness
 
 - (IBAction)changeBrightness:(id)sender {
+	[[NSUserDefaults standardUserDefaults] setObject:@(self.brightnessSlider.value) forKey:@"Brightness"];
 	[self updateColorOnDevice];
 }
 
@@ -153,6 +164,8 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 		[self.colors[indexPath.item] getValue:&cellColor];
 		cell.color = [UIColor colorWithHue:cellColor.hue saturation:cellColor.satturation brightness:1.0f alpha:1.0f];
 		
+		[cell setEditing:self.editing animated:NO];
+		
 		return cell;
 		
 	} else {
@@ -173,6 +186,15 @@ static NSString* const ColorAddCollectionCellIdentifier = @"ColorAddCollectionCe
 			[NSException raise:NSInternalInconsistencyException format:@"This shouldn't happen!"];
 		}
 	}
+}
+
+- (void)collectionView:(UICollectionView *)collectionView deleteButtonTappedAtIndexPath:(NSIndexPath *)indexPath {
+	NSMutableArray* array = [NSMutableArray arrayWithArray:self.colors];
+	[array removeObjectAtIndex:indexPath.item];
+	self.colors = [NSArray arrayWithArray:array];
+	[self saveColors];
+	
+	[collectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
 
 
