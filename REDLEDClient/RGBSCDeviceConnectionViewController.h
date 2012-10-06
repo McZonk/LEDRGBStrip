@@ -16,4 +16,8 @@
 - (void)sendColorToDevice:(UIColor*)color range:(NSRange)range;
 - (void)bindToNetService:(NSNetService*)service;
 
+// Subclassing
+- (void)applicationDidEnterBackground:(NSNotification*)aNotification;
+- (void)applicationWillEnterForeground:(NSNotification*)aNotification;
+
 @end
