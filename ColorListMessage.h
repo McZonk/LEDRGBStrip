@@ -25,9 +25,10 @@ namespace RGBStrip {
 
 		Key keys[0];
 		
-		void fillHeader(uint16_t count) {
+		void fillHeader(uint16_t count, uint16_t transitionDuration = 0) {
 			header.identifier = Identifier;
 			header.type = Type;
+			header.transitionDuration = transitionDuration;
 			header.length = size(count);
 		}
 	};

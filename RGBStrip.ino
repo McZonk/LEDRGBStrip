@@ -24,18 +24,27 @@ EthernetUDP socket;
 LPD8806 ledStrip = LPD8806(LedStripLedCount, LedStripDataPin, LedStripClockPin);
 
 HSBColor currentColors[LedStripLedCount];
-//HSBColor targetColors[LedStripLedCount];
+HSBColor targetColors[LedStripLedCount];
+uint16_t animationDuration;
+uint32_t const updateInterval = 1000/30; //in milliseconds
 
 void setup()
 {
+  Serial.begin(9600);
+  Serial.println("Setup...");
+  
+  pinMode(8, OUTPUT);
+    
   ledStrip.begin();
-
+  
 #if defined(USE_DHCP) && (USE_DHCP > 0)
   ledStrip.setPixelColor(0, 16, 0, 0);
   ledStrip.show();
 
   EthernetDHCP.begin(mac);
   const byte* ip = EthernetDHCP.ipAddress();
+  
+  Serial.println("DHCP running");
 #endif
   
   ledStrip.setPixelColor(0, 16, 16, 0);
@@ -55,15 +64,20 @@ void setup()
     index += 1 + length;
   }
 
-
   EthernetBonjour.begin("arduino");
   EthernetBonjour.addServiceRecord(serviceName, port, MDNSServiceUDP, txtRecord);
 
   ledStrip.setPixelColor(0, 0, 0, 0);
   ledStrip.show();
   
-  Timer1.initialize(1000000 / 30);
+  Serial.println("NetService running");
+  
+  animationDuration = 0;
+  
+  Timer1.initialize(updateInterval * 1000);
   Timer1.attachInterrupt(ledUpdate);
+  
+  Serial.println("...done!");
 }
 
 void loop()
@@ -72,6 +86,14 @@ void loop()
   // Maintain DHCP
   EthernetDHCP.maintain();
 #endif
+  
+  RGBColor color = targetColors[0];
+  Serial.print("Color of first LED: r=");
+  Serial.print(color.r);
+  Serial.print(", g=");
+  Serial.print(color.g);
+  Serial.print(", b=");
+  Serial.println(color.b);
   
   // Maintain Bonjour
   EthernetBonjour.run();
@@ -84,6 +106,8 @@ void loop()
     
     if(messageLength == header.length) {
       noInterrupts();
+      
+      animationDuration = header.transitionDuration;
       
       switch(header.type) {
         case RGBStrip::ColorMessage::Type :
@@ -110,6 +134,8 @@ void loop()
       }
       
       interrupts();
+      
+      Serial.println("Message received!");
     }
 
     // empty the buffer    
@@ -122,8 +148,16 @@ void loop()
 }
 
 void ledUpdate() {
+  digitalWrite(8, digitalRead(8) ^ 1);
   for(int i = 0; i < LedStripLedCount; ++i) {
-    HSBColor currentColor = currentColors[i];
+    HSBColor currentColor;
+    if (animationDuration == 0) {
+      currentColor = targetColors[i];
+    } else {
+      currentColor = lerp(currentColors[i], targetColors[i], ((float)updateInterval / (float)animationDuration) * 256);
+    }
+    
+    currentColors[i] = currentColor;
      
     RGBColor rgbColor = currentColor;
     
@@ -147,7 +181,7 @@ void handleColorMessage(Stream& stream) {
   stream.readBytes((char*)&color, sizeof(color));
   
   for(int i = 0; i < count; ++i) {
-    currentColors[offset + i] = color;
+    targetColors[offset + i] = color;
   }
 }
 
@@ -166,7 +200,7 @@ void handleColorArrayMessage(Stream& stream) {
     HSBColor color;
     stream.readBytes((char*)&color, sizeof(color));
     
-    currentColors[offset + i] = color;
+    targetColors[offset + i] = color;
   }
 }
 
@@ -197,7 +231,7 @@ void handleColorListMessage(Stream& stream) {
         
         HSBColor color = lerp(pKey.color, cKey.color, time);
 
-        currentColors[offset + j] = color;
+        targetColors[offset + j] = color;
       }
       
       pKey = cKey;

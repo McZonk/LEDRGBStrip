@@ -9,7 +9,8 @@ namespace RGBStrip {
 		struct Header {
 			uint8_t identifier;
 			uint8_t type;
-
+			uint16_t transitionDuration; /// in microseconds
+			
 			uint16_t length;
 		};
 		

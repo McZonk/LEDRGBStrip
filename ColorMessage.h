@@ -20,9 +20,10 @@ namespace RGBStrip {
 		
 		HSBColor color;
 		
-		void fillHeader() {
+		void fillHeader(uint16_t transitionDuration = 0) {
 			header.identifier = Identifier;
 			header.type = Type;
+			header.transitionDuration = transitionDuration;
 			header.length = size();
 		}
 	};

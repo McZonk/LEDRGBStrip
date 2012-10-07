@@ -101,7 +101,7 @@
 	NSMutableData* data = [NSMutableData dataWithLength:RGBStrip::ColorMessage::size()];
 	
 	RGBStrip::ColorMessage& message = *(RGBStrip::ColorMessage*)data.mutableBytes;
-	message.fillHeader();
+	message.fillHeader(10);
 	message.offset = range.location;
 	message.count = range.length;
 	message.color = HSBColor(hue, saturation, brightness);
